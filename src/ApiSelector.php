@@ -22,6 +22,8 @@ class ApiSelector
         switch ($apiAlias) {
             case 'product':
                 return $this->apiClient->getProductApi();
+            case 'product-model':
+                return $this->apiClient->getProductModelApi();
         }
     }
 }
