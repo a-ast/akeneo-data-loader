@@ -2,8 +2,6 @@
 
 namespace Aa\AkeneoDataLoader;
 
-use Traversable;
-
 class Loader
 {
     /**
@@ -16,7 +14,7 @@ class Loader
         $this->apiSelector = $apiSelector;
     }
 
-    public function load(Traversable $dataProvider)
+    public function load(iterable $dataProvider)
     {
         foreach ($dataProvider as $apiAlias => $entities) {
             $api = $this->apiSelector->select($apiAlias);
