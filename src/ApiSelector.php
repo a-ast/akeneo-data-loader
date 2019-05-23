@@ -2,8 +2,11 @@
 
 namespace Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Upsert\AttributeOptionUpserter;
+use Aa\AkeneoDataLoader\Upsert\FamilyVariantUpserter;
+use Aa\AkeneoDataLoader\Upsert\StandardUpserter;
+use Aa\AkeneoDataLoader\Upsert\Upsertable;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
-use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
 
 class ApiSelector
 {
@@ -17,25 +20,25 @@ class ApiSelector
         $this->apiClient = $apiClient;
     }
 
-    public function select(string $apiAlias): UpsertableResourceInterface
+    public function select(string $apiAlias): Upsertable
     {
         switch ($apiAlias) {
             case 'attributes':
-                return $this->apiClient->getAttributeApi();
+                return new StandardUpserter($this->apiClient->getAttributeApi());
             case 'categories':
-                return $this->apiClient->getCategoryApi();
+                return new StandardUpserter($this->apiClient->getCategoryApi());
             case 'attribute-groups':
-                return $this->apiClient->getAttributeGroupApi();
+                return new StandardUpserter($this->apiClient->getAttributeGroupApi());
             case 'attribute-options':
-                return $this->apiClient->getAttributeOptionApi();
+                return new AttributeOptionUpserter($this->apiClient->getAttributeOptionApi());
             case 'families':
-                return $this->apiClient->getFamilyApi();
+                return new StandardUpserter($this->apiClient->getFamilyApi());
             case 'family-variants':
-                return $this->apiClient->getFamilyVariantApi();
+                return new FamilyVariantUpserter($this->apiClient->getFamilyVariantApi());
             case 'products':
-                return $this->apiClient->getProductApi();
+                return new StandardUpserter($this->apiClient->getProductApi());
             case 'product-models':
-                return $this->apiClient->getProductModelApi();
+                return new StandardUpserter($this->apiClient->getProductModelApi());
         }
 
         throw new \InvalidArgumentException(sprintf('Unknown api alias: %s', $apiAlias));

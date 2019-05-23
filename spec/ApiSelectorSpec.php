@@ -3,6 +3,7 @@
 namespace spec\Aa\AkeneoDataLoader;
 
 use Aa\AkeneoDataLoader\ApiSelector;
+use Aa\AkeneoDataLoader\Upsert\Upsertable;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
 use Akeneo\Pim\ApiClient\Api\ProductApiInterface;
@@ -21,6 +22,6 @@ class ApiSelectorSpec extends ObjectBehavior
     {
         $apiClient->getProductApi()->willReturn($api);
 
-        $this->select('products')->shouldReturn($api);
+        $this->select('products')->shouldHaveType(Upsertable::class);
     }
 }
