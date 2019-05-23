@@ -2,6 +2,8 @@
 
 namespace Aa\AkeneoDataLoader;
 
+use Akeneo\Pim\ApiClient\Exception\UnprocessableEntityHttpException;
+
 class Loader
 {
     /**
@@ -19,7 +21,10 @@ class Loader
         foreach ($dataProvider as $apiAlias => $entities) {
             $api = $this->apiSelector->select($apiAlias);
 
-            foreach ($entities as $code => $data) {
+            foreach ($entities as $data) {
+
+                $code = $data['identifier'] ?? $data['code'];
+
                 $api->upsert($code, $data);
             }
         }
