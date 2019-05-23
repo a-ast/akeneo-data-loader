@@ -21,6 +21,6 @@ class ApiSelectorSpec extends ObjectBehavior
     {
         $apiClient->getProductApi()->willReturn($api);
 
-        $this->select('product')->shouldReturn($api);
+        $this->select('products')->shouldReturn($api);
     }
 }
