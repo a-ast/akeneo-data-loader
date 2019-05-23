@@ -20,10 +20,24 @@ class ApiSelector
     public function select(string $apiAlias): UpsertableResourceInterface
     {
         switch ($apiAlias) {
-            case 'product':
+            case 'attributes':
+                return $this->apiClient->getAttributeApi();
+            case 'categories':
+                return $this->apiClient->getCategoryApi();
+            case 'attribute-groups':
+                return $this->apiClient->getAttributeGroupApi();
+            case 'attribute-options':
+                return $this->apiClient->getAttributeOptionApi();
+            case 'families':
+                return $this->apiClient->getFamilyApi();
+            case 'family-variants':
+                return $this->apiClient->getFamilyVariantApi();
+            case 'products':
                 return $this->apiClient->getProductApi();
-            case 'product-model':
+            case 'product-models':
                 return $this->apiClient->getProductModelApi();
         }
+
+        throw new \InvalidArgumentException(sprintf('Unknown api alias: %s', $apiAlias));
     }
 }
