@@ -18,6 +18,11 @@ class FamilyVariantUpserter implements Upsertable
 
     public function upsert(array $data)
     {
-        $this->api->upsert($data['family_code'], $data['code'], $data);
+        $code = $data['code'];
+        $familyCode = $data['family'];
+
+        unset($data['family'], $data['code']);
+
+        $this->api->upsert($familyCode, $code, $data);
     }
 }
