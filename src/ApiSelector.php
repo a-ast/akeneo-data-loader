@@ -8,7 +8,7 @@ use Aa\AkeneoDataLoader\Upsert\StandardUpserter;
 use Aa\AkeneoDataLoader\Upsert\Upsertable;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 
-class ApiSelector
+class ApiSelector implements ApiSelectorInterface
 {
     /**
      * @var AkeneoPimClientInterface
