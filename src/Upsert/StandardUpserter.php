@@ -20,6 +20,8 @@ class StandardUpserter implements Upsertable
     {
         $code = $data['identifier'] ?? $data['code'];
 
+        unset($data['code']);
+
         $this->api->upsert($code, $data);
     }
 }
