@@ -23,6 +23,8 @@ class ApiSelector implements ApiSelectorInterface
     public function select(string $apiAlias): Upsertable
     {
         switch ($apiAlias) {
+            case 'channel':
+                return new StandardUpserter($this->apiClient->getChannelApi());
             case 'attributes':
                 return new StandardUpserter($this->apiClient->getAttributeApi());
             case 'categories':
