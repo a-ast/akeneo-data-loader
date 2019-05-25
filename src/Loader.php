@@ -29,7 +29,7 @@ class Loader
     {
         $api = $this->apiSelector->select($apiAlias);
 
-        $response = $api->upsert($dataProvider);
+        $response = $api->upload($dataProvider);
 
         $this->validator->validate($response);
     }

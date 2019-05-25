@@ -2,7 +2,7 @@
 
 namespace spec\Aa\AkeneoDataLoader\Upsert;
 
-use Aa\AkeneoDataLoader\Upsert\Upsertable;
+use Aa\AkeneoDataLoader\Upsert\Uploadable;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -16,13 +16,13 @@ class StandardUpserterSpec extends ObjectBehavior
 
     function it_is_upsertable()
     {
-        $this->shouldHaveType(Upsertable::class);
+        $this->shouldHaveType(Uploadable::class);
     }
 
     function it_upserts(UpsertableResourceInterface $api)
     {
         $api->upsert(1, ['code' => 1, 'a' => 2])->shouldBeCalled();
 
-        $this->upsert(['code' => 1, 'a' => 2]);
+        $this->upload(['code' => 1, 'a' => 2]);
     }
 }

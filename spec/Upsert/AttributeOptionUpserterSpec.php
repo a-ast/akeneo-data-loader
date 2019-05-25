@@ -3,7 +3,7 @@
 namespace spec\Aa\AkeneoDataLoader\Upsert;
 
 use Aa\AkeneoDataLoader\Upsert\AttributeOptionUpserter;
-use Aa\AkeneoDataLoader\Upsert\Upsertable;
+use Aa\AkeneoDataLoader\Upsert\Uploadable;
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -17,7 +17,7 @@ class AttributeOptionUpserterSpec extends ObjectBehavior
 
     function it_is_upsertable()
     {
-        $this->shouldHaveType(Upsertable::class);
+        $this->shouldHaveType(Uploadable::class);
     }
 
     function it_upserts(AttributeOptionApiInterface $api)
@@ -26,6 +26,6 @@ class AttributeOptionUpserterSpec extends ObjectBehavior
 
         $api->upsert('size', 'XL', $data)->shouldBeCalled();
 
-        $this->upsert($data);
+        $this->upload($data);
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\Upsert\Upsertable;
+use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 
 interface ApiSelectorInterface
 {
-    public function select(string $apiAlias): Upsertable;
+    public function select(string $apiAlias): Uploadable;
 }

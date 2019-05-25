@@ -1,11 +1,11 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\Upsert;
+namespace Aa\AkeneoDataLoader\ApiAdapter;
 
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
 use Traversable;
 
-class AttributeOptionUpserter implements Upsertable
+class AttributeOption implements Uploadable
 {
     /**
      * @var AttributeOptionApiInterface
@@ -17,7 +17,7 @@ class AttributeOptionUpserter implements Upsertable
         $this->api = $api;
     }
 
-    public function upsert(array $data): iterable
+    public function upload(array $data): iterable
     {
         $responses = [];
 

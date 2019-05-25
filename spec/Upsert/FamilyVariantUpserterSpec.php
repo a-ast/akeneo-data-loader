@@ -3,7 +3,7 @@
 namespace spec\Aa\AkeneoDataLoader\Upsert;
 
 use Aa\AkeneoDataLoader\Upsert\FamilyVariantUpserter;
-use Aa\AkeneoDataLoader\Upsert\Upsertable;
+use Aa\AkeneoDataLoader\Upsert\Uploadable;
 use Akeneo\Pim\ApiClient\Api\FamilyVariantApiInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -17,7 +17,7 @@ class FamilyVariantUpserterSpec extends ObjectBehavior
 
     function it_is_upsertable()
     {
-        $this->shouldHaveType(Upsertable::class);
+        $this->shouldHaveType(Uploadable::class);
     }
 
     function it_upserts(FamilyVariantApiInterface $api)
@@ -26,6 +26,6 @@ class FamilyVariantUpserterSpec extends ObjectBehavior
 
         $api->upsert('shoes', 'shoes_size', $data)->shouldBeCalled();
 
-        $this->upsert($data);
+        $this->upload($data);
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\Upsert;
+namespace Aa\AkeneoDataLoader\ApiAdapter;
 
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 use Traversable;
 
-class StandardUpserter implements Upsertable
+class StandardAdapter implements Uploadable
 {
     /**
      * @var UpsertableResourceListInterface
@@ -17,7 +17,7 @@ class StandardUpserter implements Upsertable
         $this->api = $api;
     }
 
-    public function upsert(array $data): iterable
+    public function upload(array $data): iterable
     {
         // @todo: split data to 100
 

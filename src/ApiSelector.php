@@ -2,10 +2,10 @@
 
 namespace Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\Upsert\AttributeOptionUpserter;
-use Aa\AkeneoDataLoader\Upsert\FamilyVariantUpserter;
-use Aa\AkeneoDataLoader\Upsert\StandardUpserter;
-use Aa\AkeneoDataLoader\Upsert\Upsertable;
+use Aa\AkeneoDataLoader\ApiAdapter\AttributeOption;
+use Aa\AkeneoDataLoader\ApiAdapter\FamilyVariant;
+use Aa\AkeneoDataLoader\ApiAdapter\StandardAdapter;
+use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 
 class ApiSelector implements ApiSelectorInterface
@@ -20,27 +20,27 @@ class ApiSelector implements ApiSelectorInterface
         $this->apiClient = $apiClient;
     }
 
-    public function select(string $apiAlias): Upsertable
+    public function select(string $apiAlias): Uploadable
     {
         switch ($apiAlias) {
             case 'channel':
-                return new StandardUpserter($this->apiClient->getChannelApi());
+                return new StandardAdapter($this->apiClient->getChannelApi());
             case 'category':
-                return new StandardUpserter($this->apiClient->getCategoryApi());
+                return new StandardAdapter($this->apiClient->getCategoryApi());
             case 'attribute':
-                return new StandardUpserter($this->apiClient->getAttributeApi());
+                return new StandardAdapter($this->apiClient->getAttributeApi());
             case 'attribute-group':
-                return new StandardUpserter($this->apiClient->getAttributeGroupApi());
+                return new StandardAdapter($this->apiClient->getAttributeGroupApi());
             case 'attribute-option':
-                return new AttributeOptionUpserter($this->apiClient->getAttributeOptionApi());
+                return new AttributeOption($this->apiClient->getAttributeOptionApi());
             case 'family':
-                return new StandardUpserter($this->apiClient->getFamilyApi());
+                return new StandardAdapter($this->apiClient->getFamilyApi());
             case 'family-variant':
-                return new FamilyVariantUpserter($this->apiClient->getFamilyVariantApi());
+                return new FamilyVariant($this->apiClient->getFamilyVariantApi());
             case 'product':
-                return new StandardUpserter($this->apiClient->getProductApi());
+                return new StandardAdapter($this->apiClient->getProductApi());
             case 'product-model':
-                return new StandardUpserter($this->apiClient->getProductModelApi());
+                return new StandardAdapter($this->apiClient->getProductModelApi());
         }
 
         throw new \InvalidArgumentException(sprintf('Unknown api alias: %s', $apiAlias));
