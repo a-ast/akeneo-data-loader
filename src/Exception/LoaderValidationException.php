@@ -15,4 +15,9 @@ class LoaderValidationException extends \Exception
 
         parent::__construct('Data loading failed.');
     }
+
+    public function getValidationErrors(): array
+    {
+        return $this->validationErrors;
+    }
 }
