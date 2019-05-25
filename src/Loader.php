@@ -14,14 +14,12 @@ class Loader
         $this->apiSelector = $apiSelector;
     }
 
-    public function load(iterable $dataProvider)
+    public function load(string $apiAlias, iterable $dataProvider)
     {
-        foreach ($dataProvider as $apiAlias => $entities) {
-            $api = $this->apiSelector->select($apiAlias);
+        $api = $this->apiSelector->select($apiAlias);
 
-            foreach ($entities as $data) {
-                $api->upsert($data);
-            }
+        foreach ($dataProvider as $data) {
+            $api->upsert($data);
         }
     }
 }
