@@ -2,13 +2,12 @@
 
 namespace spec\Aa\AkeneoDataLoader\Upsert;
 
-use Aa\AkeneoDataLoader\Upsert\AttributeOptionUpserter;
-use Aa\AkeneoDataLoader\Upsert\Uploadable;
+use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class AttributeOptionUpserterSpec extends ObjectBehavior
+class AttributeOptionSpec extends ObjectBehavior
 {
     function let(AttributeOptionApiInterface $api)
     {

@@ -2,12 +2,12 @@
 
 namespace spec\Aa\AkeneoDataLoader\Upsert;
 
-use Aa\AkeneoDataLoader\Upsert\Uploadable;
+use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class StandardUpserterSpec extends ObjectBehavior
+class StandardAdapterSpec extends ObjectBehavior
 {
     function let(UpsertableResourceInterface $api)
     {
