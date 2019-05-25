@@ -18,8 +18,10 @@ class Loader
     {
         $api = $this->apiSelector->select($apiAlias);
 
-        foreach ($dataProvider as $data) {
-            $api->upsert($data);
-        }
+        $api->upsert($dataProvider);
+
+//        foreach ($dataProvider as $data) {
+//            $api->upsert($data);
+//        }
     }
 }

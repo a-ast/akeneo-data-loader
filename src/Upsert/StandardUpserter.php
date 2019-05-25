@@ -3,6 +3,7 @@
 namespace Aa\AkeneoDataLoader\Upsert;
 
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
+use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 
 class StandardUpserter implements Upsertable
 {
@@ -18,6 +19,18 @@ class StandardUpserter implements Upsertable
 
     public function upsert(array $data)
     {
+        if ($this->api instanceof UpsertableResourceListInterface) {
+
+            $responses = $this->api->upsertList($data);
+
+            foreach ($responses as $response) {
+
+                var_dump($response['status_code']);
+            }
+
+        }
+
+
         $code = $data['identifier'] ?? $data['code'];
 
         unset($data['code']);

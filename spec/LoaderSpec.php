@@ -16,6 +16,6 @@ class LoaderSpec extends ObjectBehavior
 
     function it_loads(\Iterator $data, ApiSelector $apiSelector)
     {
-        $this->load($data);
+        $this->load('product', $data);
     }
 }
