@@ -25,6 +25,8 @@ class ApiSelector implements ApiSelectorInterface
         switch ($apiAlias) {
             case 'channel':
                 return new StandardUpserter($this->apiClient->getChannelApi());
+            case 'category':
+                return new StandardUpserter($this->apiClient->getCategoryApi());
             case 'attributes':
                 return new StandardUpserter($this->apiClient->getAttributeApi());
             case 'categories':
