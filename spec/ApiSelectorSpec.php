@@ -22,6 +22,6 @@ class ApiSelectorSpec extends ObjectBehavior
     {
         $apiClient->getProductApi()->willReturn($api);
 
-        $this->select('products')->shouldHaveType(Upsertable::class);
+        $this->select('product')->shouldHaveType(Upsertable::class);
     }
 }

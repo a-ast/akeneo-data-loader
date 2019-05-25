@@ -27,21 +27,19 @@ class ApiSelector implements ApiSelectorInterface
                 return new StandardUpserter($this->apiClient->getChannelApi());
             case 'category':
                 return new StandardUpserter($this->apiClient->getCategoryApi());
-            case 'attributes':
+            case 'attribute':
                 return new StandardUpserter($this->apiClient->getAttributeApi());
-            case 'categories':
-                return new StandardUpserter($this->apiClient->getCategoryApi());
-            case 'attribute-groups':
+            case 'attribute-group':
                 return new StandardUpserter($this->apiClient->getAttributeGroupApi());
-            case 'attribute-options':
+            case 'attribute-option':
                 return new AttributeOptionUpserter($this->apiClient->getAttributeOptionApi());
-            case 'families':
+            case 'family':
                 return new StandardUpserter($this->apiClient->getFamilyApi());
-            case 'family-variants':
+            case 'family-variant':
                 return new FamilyVariantUpserter($this->apiClient->getFamilyVariantApi());
-            case 'products':
+            case 'product':
                 return new StandardUpserter($this->apiClient->getProductApi());
-            case 'product-models':
+            case 'product-model':
                 return new StandardUpserter($this->apiClient->getProductModelApi());
         }
 
