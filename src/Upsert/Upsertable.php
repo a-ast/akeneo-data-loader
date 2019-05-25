@@ -4,5 +4,5 @@ namespace Aa\AkeneoDataLoader\Upsert;
 
 interface Upsertable
 {
-    public function upsert(array $data);
+    public function upsert(array $data): iterable;
 }

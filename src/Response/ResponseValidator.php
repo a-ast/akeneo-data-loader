@@ -9,10 +9,8 @@ class ResponseValidator
     /**
      * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
      */
-    public function validate(\Traversable $response)
+    public function validate(iterable $response)
     {
-        $response = iterator_to_array($response);
-
         $errors = array_values(array_filter($response,
             function (array $item) {
                 return false === in_array($item['status_code'], [201, 204]);

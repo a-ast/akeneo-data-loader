@@ -3,6 +3,7 @@
 namespace Aa\AkeneoDataLoader\Upsert;
 
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
+use Traversable;
 
 class AttributeOptionUpserter implements Upsertable
 {
@@ -16,8 +17,16 @@ class AttributeOptionUpserter implements Upsertable
         $this->api = $api;
     }
 
-    public function upsert(array $data)
+    public function upsert(array $data): iterable
     {
-        $this->api->upsert($data['attribute'], $data['code'], $data);
+        $responses = [];
+
+        foreach ($data as $attribute => $options) {
+
+            $response = $this->api->upsertList($attribute, $options);
+            $responses = array_merge($responses, iterator_to_array($response));
+        }
+
+        return $responses;
     }
 }

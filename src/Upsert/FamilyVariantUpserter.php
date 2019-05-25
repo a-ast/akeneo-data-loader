@@ -16,13 +16,16 @@ class FamilyVariantUpserter implements Upsertable
         $this->api = $api;
     }
 
-    public function upsert(array $data)
+    public function upsert(array $data): iterable
     {
-        $code = $data['code'];
-        $familyCode = $data['family'];
+        $responses = [];
 
-        unset($data['family'], $data['code']);
+        foreach ($data as $family => $variants) {
 
-        $this->api->upsert($familyCode, $code, $data);
+            $response = $this->api->upsertList($family, $variants);
+            $responses = array_merge($responses, iterator_to_array($response));
+        }
+
+        return $responses;
     }
 }

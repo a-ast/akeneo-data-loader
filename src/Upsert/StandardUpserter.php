@@ -2,39 +2,25 @@
 
 namespace Aa\AkeneoDataLoader\Upsert;
 
-use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
+use Traversable;
 
 class StandardUpserter implements Upsertable
 {
     /**
-     * @var UpsertableResourceInterface
+     * @var UpsertableResourceListInterface
      */
     private $api;
 
-    public function __construct(UpsertableResourceInterface $api)
+    public function __construct(UpsertableResourceListInterface $api)
     {
         $this->api = $api;
     }
 
-    public function upsert(array $data)
+    public function upsert(array $data): iterable
     {
-        if ($this->api instanceof UpsertableResourceListInterface) {
+        // @todo: split data to 100
 
-            $responses = $this->api->upsertList($data);
-
-            foreach ($responses as $response) {
-
-                var_dump($response['status_code']);
-            }
-
-        }
-
-
-        $code = $data['identifier'] ?? $data['code'];
-
-        unset($data['code']);
-
-        $this->api->upsert($code, $data);
+        return iterator_to_array($this->api->upsertList($data));
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Response\ResponseValidator;
+
 class Loader
 {
     /**
@@ -9,19 +11,26 @@ class Loader
      */
     private $apiSelector;
 
-    public function __construct(ApiSelector $apiSelector)
+    /**
+     * @var ResponseValidator
+     */
+    private $validator;
+
+    public function __construct(ApiSelector $apiSelector, ResponseValidator $validator)
     {
         $this->apiSelector = $apiSelector;
+        $this->validator = $validator;
     }
 
+    /**
+     * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
+     */
     public function load(string $apiAlias, iterable $dataProvider)
     {
         $api = $this->apiSelector->select($apiAlias);
 
-        $api->upsert($dataProvider);
+        $response = $api->upsert($dataProvider);
 
-//        foreach ($dataProvider as $data) {
-//            $api->upsert($data);
-//        }
+        $this->validator->validate($response);
     }
 }
