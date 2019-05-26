@@ -2,10 +2,8 @@
 
 namespace spec\Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\ApiSelector;
-use Aa\AkeneoDataLoader\Upsert\Uploadable;
+use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
-use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
 use Akeneo\Pim\ApiClient\Api\ProductApiInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
