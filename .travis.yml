@@ -1,0 +1,19 @@
+sudo: false
+
+git:
+    depth: 10
+
+language: php
+
+php:
+  - 7.1
+  - 7.2
+  - 7.3
+
+install:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
+script:
+  - ./vendor/bin/phpstan analyze src --level max
+  - ./vendor/bin/phpspec run --no-interaction
