@@ -17,22 +17,15 @@ For Enterprise Edition please check the [EE version](https://github.com/a-ast/ak
 #### Load form array
 
 ```php
-        $factory = new LoaderFactory();
+$factory = new LoaderFactory();
 
-        $apiCredentials = Api\Credentials::create(
-            'https://your.akeneo.host/',
-            'clientId',
-            'secret',
-            'username',
-            'password'
-        );
+$apiCredentials = Api\Credentials::create('https://your.akeneo.host/', 'clientId', 'secret', 'username', 'password');
 
-        $loader = $factory->createByCredentials($apiCredentials);
+$loader = $factory->createByCredentials($apiCredentials);
 
-        $loader->load('product', [
-            ['identifier' => 'test-1'],
-            ['identifier' => 'test-2'],
-        ]);
-
+$loader->load('product', [
+    ['identifier' => 'test-1'],
+    ['identifier' => 'test-2'],
+]);
 ```
 
