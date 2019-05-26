@@ -1,6 +1,6 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\Iterator;
+namespace Aa\AkeneoDataLoader\Batch;
 
 use Traversable;
 

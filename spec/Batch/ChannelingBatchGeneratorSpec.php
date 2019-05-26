@@ -1,8 +1,7 @@
 <?php
 
-namespace spec\Aa\AkeneoDataLoader\Iterator;
+namespace spec\Aa\AkeneoDataLoader\Batch;
 
-use Aa\AkeneoDataLoader\Iterator\ChannelingBatchGenerator;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

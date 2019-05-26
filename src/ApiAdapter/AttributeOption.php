@@ -2,7 +2,7 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-use Aa\AkeneoDataLoader\Iterator\ChannelingBatchGenerator;
+use Aa\AkeneoDataLoader\Batch\ChannelingBatchGenerator;
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
 use Traversable;
 

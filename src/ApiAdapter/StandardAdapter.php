@@ -2,7 +2,7 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-use Aa\AkeneoDataLoader\Iterator\BatchGenerator;
+use Aa\AkeneoDataLoader\Batch\BatchGenerator;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 
 class StandardAdapter implements Uploadable
@@ -13,7 +13,7 @@ class StandardAdapter implements Uploadable
     private $api;
 
     /**
-     * @var \Aa\AkeneoDataLoader\Iterator\BatchGenerator
+     * @var \Aa\AkeneoDataLoader\Batch\BatchGenerator
      */
     private $batchGenerator;
 
