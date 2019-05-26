@@ -4,5 +4,5 @@ namespace Aa\AkeneoDataLoader\ApiAdapter;
 
 interface Uploadable
 {
-    public function upload(array $data): iterable;
+    public function upload(iterable $data): iterable;
 }

@@ -16,7 +16,7 @@ class FamilyVariant implements Uploadable
         $this->api = $api;
     }
 
-    public function upload(array $data): iterable
+    public function upload(iterable $data): iterable
     {
         $responses = [];
 

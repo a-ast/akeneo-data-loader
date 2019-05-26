@@ -2,6 +2,7 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
+use Aa\AkeneoDataLoader\Iterator\IterableToArray;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 use Traversable;
 
@@ -17,10 +18,13 @@ class StandardAdapter implements Uploadable
         $this->api = $api;
     }
 
-    public function upload(array $data): iterable
+    public function upload(iterable $data): iterable
     {
         // @todo: split data to 100
+        $data = IterableToArray::convert($data);
 
-        return iterator_to_array($this->api->upsertList($data));
+        $response = $this->api->upsertList($data);
+
+        yield from $response;
     }
 }
