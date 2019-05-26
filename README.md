@@ -17,6 +17,10 @@ For Enterprise Edition please check the [EE version](https://github.com/a-ast/ak
 #### Load form array
 
 ```php
+
+use Aa\AkeneoDataLoader\Api;
+use Aa\AkeneoDataLoader\LoaderFactory;
+
 $factory = new LoaderFactory();
 
 $apiCredentials = Api\Credentials::create('https://your.akeneo.host/', 'clientId', 'secret', 'username', 'password');
