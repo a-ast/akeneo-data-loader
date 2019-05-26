@@ -23,7 +23,7 @@ class LoaderFactory
         return new Loader($apiSelector, $responseValidator);
     }
 
-    public function createByCredentials(Credentials $apiCredentials): LoaderInterface
+    public function createByCredentials(Credentials $apiCredentials, Configuration $configuration = null): LoaderInterface
     {
         $clientBuilder = new AkeneoPimClientBuilder($apiCredentials->getBaseUri());
 
@@ -34,6 +34,6 @@ class LoaderFactory
             $apiCredentials->getPassword()
         );
 
-        return $this->createByApiClient($client);
+        return $this->createByApiClient($client, $configuration);
     }
 }
