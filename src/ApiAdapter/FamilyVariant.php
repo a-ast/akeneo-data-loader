@@ -18,14 +18,11 @@ class FamilyVariant implements Uploadable
 
     public function upload(iterable $data): iterable
     {
-        $responses = [];
-
         foreach ($data as $family => $variants) {
 
             $response = $this->api->upsertList($family, $variants);
-            $responses = array_merge($responses, iterator_to_array($response));
-        }
 
-        return $responses;
+            yield from $response;
+        }
     }
 }
