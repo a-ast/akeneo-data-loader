@@ -20,11 +20,11 @@ class AttributeOption implements Uploadable
 
     public function upload(iterable $data): iterable
     {
-        $batchGenerator = new ChannelingBatchGenerator(100, 'code');
+        $batchGenerator = new ChannelingBatchGenerator(3, 'attribute');
 
         foreach ($batchGenerator->getBatches($data) as $options) {
 
-            $attribute = $options[0]['code'];
+            $attribute = $options[0]['attribute'];
 
             $response = $this->api->upsertList($attribute, $options);
 
