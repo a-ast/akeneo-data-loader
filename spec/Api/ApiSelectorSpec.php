@@ -11,15 +11,16 @@ use Prophecy\Argument;
 
 class ApiSelectorSpec extends ObjectBehavior
 {
-    function let(AkeneoPimClientInterface $apiClient, Configuration $configuration)
+    function let(AkeneoPimClientInterface $apiClient, Configuration $configuration, ProductApiInterface $api)
     {
+        $apiClient->getProductApi()->willReturn($api);
+        $configuration->getUpsertBatchSize()->willReturn(10);
+
         $this->beConstructedWith($apiClient, $configuration);
     }
 
-    function it_selects_api(AkeneoPimClientInterface $apiClient, ProductApiInterface $api)
+    function it_selects_api()
     {
-        $apiClient->getProductApi()->willReturn($api);
-
         $this->select('product')->shouldHaveType(Uploadable::class);
     }
 }

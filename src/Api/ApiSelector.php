@@ -28,25 +28,54 @@ class ApiSelector implements ApiSelectorInterface
 
     public function select(string $apiAlias): Uploadable
     {
+        $upsertBatchSize = $this->configuration->getUpsertBatchSize();
+        
         switch ($apiAlias) {
+
             case 'channel':
-                return new StandardAdapter($this->apiClient->getChannelApi());
+                return new StandardAdapter($this->apiClient->getChannelApi(),
+                    $upsertBatchSize
+                );
+
             case 'category':
-                return new StandardAdapter($this->apiClient->getCategoryApi());
+                return new StandardAdapter($this->apiClient->getCategoryApi(),
+                    $upsertBatchSize
+                );
+
             case 'attribute':
-                return new StandardAdapter($this->apiClient->getAttributeApi());
+                return new StandardAdapter($this->apiClient->getAttributeApi(),
+                    $upsertBatchSize
+                );
+
             case 'attribute-group':
-                return new StandardAdapter($this->apiClient->getAttributeGroupApi());
+                return new StandardAdapter($this->apiClient->getAttributeGroupApi(),
+                    $upsertBatchSize
+                );
+
             case 'attribute-option':
-                return new AttributeOption($this->apiClient->getAttributeOptionApi());
+                return new AttributeOption($this->apiClient->getAttributeOptionApi(),
+                    $upsertBatchSize
+                );
+
             case 'family':
-                return new StandardAdapter($this->apiClient->getFamilyApi());
+                return new StandardAdapter($this->apiClient->getFamilyApi(),
+                    $upsertBatchSize
+                );
+
             case 'family-variant':
-                return new FamilyVariant($this->apiClient->getFamilyVariantApi());
+                return new FamilyVariant($this->apiClient->getFamilyVariantApi(),
+                    $upsertBatchSize
+                );
+
             case 'product':
-                return new StandardAdapter($this->apiClient->getProductApi());
+                return new StandardAdapter($this->apiClient->getProductApi(),
+                    $upsertBatchSize
+                );
+
             case 'product-model':
-                return new StandardAdapter($this->apiClient->getProductModelApi());
+                return new StandardAdapter($this->apiClient->getProductModelApi(),
+                    $upsertBatchSize
+                );
         }
 
         throw new \InvalidArgumentException(sprintf('Unknown api alias: %s', $apiAlias));
