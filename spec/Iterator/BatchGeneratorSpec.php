@@ -2,11 +2,11 @@
 
 namespace spec\Aa\AkeneoDataLoader\Iterator;
 
-use Aa\AkeneoDataLoader\Iterator\IterableToBatch;
+use Aa\AkeneoDataLoader\Iterator\BatchGenerator;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class IterableToBatchSpec extends ObjectBehavior
+class BatchGeneratorSpec extends ObjectBehavior
 {
     function let()
     {
@@ -19,6 +19,6 @@ class IterableToBatchSpec extends ObjectBehavior
             1, 2, 3, 4, 5
         ];
 
-        $this->toBatches($input)->shouldYield([[1, 2], [3, 4], [5]]);
+        $this->getBatches($input)->shouldYield([[1, 2], [3, 4], [5]]);
     }
 }

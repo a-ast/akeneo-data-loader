@@ -2,7 +2,9 @@
 
 namespace Aa\AkeneoDataLoader\Iterator;
 
-class IterableToBatch
+use Traversable;
+
+class BatchGenerator
 {
     /**
      * @var int
@@ -14,7 +16,7 @@ class IterableToBatch
         $this->size = $size;
     }
 
-    public function toBatches(iterable $iterator)
+    public function getBatches(iterable $iterator): Traversable
     {
         $batch = [];
 

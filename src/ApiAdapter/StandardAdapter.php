@@ -2,9 +2,8 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-use Aa\AkeneoDataLoader\Iterator\IterableToBatch;
+use Aa\AkeneoDataLoader\Iterator\BatchGenerator;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
-use Traversable;
 
 class StandardAdapter implements Uploadable
 {
@@ -14,25 +13,23 @@ class StandardAdapter implements Uploadable
     private $api;
 
     /**
-     * @var \Aa\AkeneoDataLoader\Iterator\IterableToBatch
+     * @var \Aa\AkeneoDataLoader\Iterator\BatchGenerator
      */
-    private $batchMaker;
+    private $batchGenerator;
 
     public function __construct(UpsertableResourceListInterface $api)
     {
         $this->api = $api;
 
-        $this->batchMaker = new IterableToBatch(100);
+        $this->batchGenerator = new BatchGenerator(100);
     }
 
     public function upload(iterable $data): iterable
     {
-        foreach ($this->batchMaker->toBatches($data) as $batch) {
+        foreach ($this->batchGenerator->getBatches($data) as $batch) {
             $response = $this->api->upsertList($batch);
 
             yield from $response;
         }
-
-
     }
 }
