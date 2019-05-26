@@ -44,9 +44,7 @@ class ChannelingBatchGenerator
             }
         }
 
-
         foreach ($batches as $batch) {
-
             yield $batch;
         }
     }
