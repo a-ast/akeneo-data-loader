@@ -2,6 +2,7 @@
 
 namespace spec\Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Api\Credentials;
 use Aa\AkeneoDataLoader\LoaderInterface;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use PhpSpec\ObjectBehavior;
@@ -14,10 +15,16 @@ class LoaderFactorySpec extends ObjectBehavior
         $this->createByApiClient($client)->shouldHaveType(LoaderInterface::class);
     }
 
-    function it_creates_from_credentials()
+    function it_creates_from_credentials(Credentials $credentials)
     {
+        $credentials->getBaseUri()->willReturn('uri');
+        $credentials->getClientId()->willReturn('clientId');
+        $credentials->getSecret()->willReturn('secret');
+        $credentials->getUsername()->willReturn('user');
+        $credentials->getPassword()->willReturn('pass');
+
         $this
-            ->createByCredentials('uri', 'clientId', 'secret', 'username', 'password')
+            ->createByCredentials($credentials)
             ->shouldHaveType(LoaderInterface::class);
     }
 }
