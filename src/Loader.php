@@ -2,9 +2,10 @@
 
 namespace Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Api\ApiSelector;
 use Aa\AkeneoDataLoader\Response\ResponseValidator;
 
-class Loader
+class Loader implements LoaderInterface
 {
     /**
      * @var ApiSelector

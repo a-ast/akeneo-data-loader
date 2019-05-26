@@ -3,8 +3,7 @@
 namespace spec\Aa\AkeneoDataLoader;
 
 use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
-use Aa\AkeneoDataLoader\ApiSelector;
-use Aa\AkeneoDataLoader\Loader;
+use Aa\AkeneoDataLoader\Api\ApiSelector;
 use Aa\AkeneoDataLoader\Response\ResponseValidator;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aa\AkeneoDataLoader;
+namespace Aa\AkeneoDataLoader\Api;
 
 use Aa\AkeneoDataLoader\ApiAdapter\AttributeOption;
 use Aa\AkeneoDataLoader\ApiAdapter\FamilyVariant;

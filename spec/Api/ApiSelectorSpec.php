@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Aa\AkeneoDataLoader;
+namespace spec\Aa\AkeneoDataLoader\Api;
 
 use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
@@ -10,7 +10,6 @@ use Prophecy\Argument;
 
 class ApiSelectorSpec extends ObjectBehavior
 {
-
     function let(AkeneoPimClientInterface $apiClient)
     {
         $this->beConstructedWith($apiClient);
