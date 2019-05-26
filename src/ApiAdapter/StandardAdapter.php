@@ -2,7 +2,6 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-use Aa\AkeneoDataLoader\Iterator\IterableToArray;
 use Aa\AkeneoDataLoader\Iterator\IterableToBatch;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 use Traversable;
