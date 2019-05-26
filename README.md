@@ -12,3 +12,27 @@ For Enterprise Edition please check the [EE version](https://github.com/a-ast/ak
 * Import from external systems (legacy PIM or regular data providers). 
 * Bulk media file import.
 
+### Examples
+
+#### Load form array
+
+```php
+        $factory = new LoaderFactory();
+
+        $apiCredentials = Api\Credentials::create(
+            'https://your.akeneo.host/',
+            'clientId',
+            'secret',
+            'username',
+            'password'
+        );
+
+        $loader = $factory->createByCredentials($apiCredentials);
+
+        $loader->load('product', [
+            ['identifier' => 'test-1'],
+            ['identifier' => 'test-2'],
+        ]);
+
+```
+

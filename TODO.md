@@ -1,8 +1,11 @@
 # TO DO
 
-1. Add README
+## Docs
+
 1. Add examples
-1. Travis
+
+## Code
+
 1. Progress callback
 1. Force to load fixtures in a specific order (e.g. attributes before products/models)
 1. Bug: returns no exception if not auth
