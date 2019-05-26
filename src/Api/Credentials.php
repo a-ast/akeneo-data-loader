@@ -29,7 +29,7 @@ class Credentials
      */
     private $password;
 
-    private function __construct(string $baseUri, string $clientId, string $secret, string $username, string $password)
+    public function __construct(string $baseUri, string $clientId, string $secret, string $username, string $password)
     {
         $this->baseUri = $baseUri;
         $this->clientId = $clientId;
