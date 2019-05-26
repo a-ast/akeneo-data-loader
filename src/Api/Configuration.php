@@ -15,7 +15,7 @@ class Configuration
      */
     private $upsertBatchSize;
 
-    private function __construct(string $uploadDir, int $upsertBatchSize)
+    public function __construct(string $uploadDir, int $upsertBatchSize)
     {
         $this->uploadDir = $uploadDir;
         $this->upsertBatchSize = $upsertBatchSize;

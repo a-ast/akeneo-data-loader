@@ -13,12 +13,12 @@ class ApiSelector implements ApiSelectorInterface
     /**
      * @var AkeneoPimClientInterface
      */
-    private $apiClient;
+    protected $apiClient;
 
     /**
      * @var Configuration
      */
-    private $configuration;
+    protected $configuration;
 
     public function __construct(AkeneoPimClientInterface $apiClient, Configuration $configuration)
     {
