@@ -3,6 +3,7 @@
 namespace Aa\AkeneoDataLoader;
 
 use Aa\AkeneoDataLoader\Api\ApiSelector;
+use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\Credentials;
 use Aa\AkeneoDataLoader\Response\ResponseValidator;
 use Akeneo\Pim\ApiClient\AkeneoPimClientBuilder;
@@ -10,9 +11,13 @@ use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 
 class LoaderFactory
 {
-    public function createByApiClient(AkeneoPimClientInterface $client, int $upsertBatchSize = 100): LoaderInterface
+    public function createByApiClient(AkeneoPimClientInterface $client, Configuration $configuration = null): LoaderInterface
     {
-        $apiSelector = new ApiSelector($client);
+        if (null === $configuration) {
+            $configuration = Configuration::create('');
+        }
+
+        $apiSelector = new ApiSelector($client, $configuration);
         $responseValidator = new ResponseValidator();
 
         return new Loader($apiSelector, $responseValidator);

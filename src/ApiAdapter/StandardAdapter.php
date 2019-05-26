@@ -13,20 +13,22 @@ class StandardAdapter implements Uploadable
     private $api;
 
     /**
-     * @var \Aa\AkeneoDataLoader\Batch\BatchGenerator
+     * @var int
      */
-    private $batchGenerator;
+    private $upsertBatchSize;
 
-    public function __construct(UpsertableResourceListInterface $api)
+    public function __construct(UpsertableResourceListInterface $api, int $upsertBatchSize = 100)
     {
         $this->api = $api;
 
-        $this->batchGenerator = new BatchGenerator(100);
+        $this->upsertBatchSize = $upsertBatchSize;
     }
 
     public function upload(iterable $data): iterable
     {
-        foreach ($this->batchGenerator->getBatches($data) as $batch) {
+        $batchGenerator = new BatchGenerator($this->upsertBatchSize);
+
+        foreach ($batchGenerator->getBatches($data) as $batch) {
             $response = $this->api->upsertList($batch);
 
             yield from $response;

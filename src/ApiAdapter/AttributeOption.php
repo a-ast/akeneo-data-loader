@@ -13,14 +13,20 @@ class AttributeOption implements Uploadable
      */
     private $api;
 
-    public function __construct(AttributeOptionApiInterface $api)
+    /**
+     * @var int
+     */
+    private $upsertBatchSize;
+
+    public function __construct(AttributeOptionApiInterface $api, int $upsertBatchSize = 100)
     {
         $this->api = $api;
+        $this->upsertBatchSize = $upsertBatchSize;
     }
 
     public function upload(iterable $data): iterable
     {
-        $batchGenerator = new ChannelingBatchGenerator(100, 'attribute');
+        $batchGenerator = new ChannelingBatchGenerator($this->upsertBatchSize, 'attribute');
 
         foreach ($batchGenerator->getBatches($data) as $options) {
 

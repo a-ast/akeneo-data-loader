@@ -15,9 +15,15 @@ class ApiSelector implements ApiSelectorInterface
      */
     private $apiClient;
 
-    public function __construct(AkeneoPimClientInterface $apiClient)
+    /**
+     * @var Configuration
+     */
+    private $configuration;
+
+    public function __construct(AkeneoPimClientInterface $apiClient, Configuration $configuration)
     {
         $this->apiClient = $apiClient;
+        $this->configuration = $configuration;
     }
 
     public function select(string $apiAlias): Uploadable

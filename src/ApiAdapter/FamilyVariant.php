@@ -12,14 +12,20 @@ class FamilyVariant implements Uploadable
      */
     private $api;
 
-    public function __construct(FamilyVariantApiInterface $api)
+    /**
+     * @var int
+     */
+    private $upsertBatchSize;
+
+    public function __construct(FamilyVariantApiInterface $api, int $upsertBatchSize = 100)
     {
         $this->api = $api;
+        $this->upsertBatchSize = $upsertBatchSize;
     }
 
     public function upload(iterable $data): iterable
     {
-        $batchGenerator = new ChannelingBatchGenerator(100, 'family');
+        $batchGenerator = new ChannelingBatchGenerator($this->upsertBatchSize, 'family');
 
         foreach ($batchGenerator->getBatches($data) as $variants) {
 
