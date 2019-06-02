@@ -30,7 +30,9 @@ class BatchGenerator
                 $batch = [];
             }
         }
-
-        yield $batch;
+        
+        if (count($batch) > 0) {
+            yield $batch;
+        }
     }
 }
