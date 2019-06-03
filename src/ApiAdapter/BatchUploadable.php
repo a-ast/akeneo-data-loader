@@ -2,7 +2,10 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-interface Uploadable
+
+interface BatchUploadable
 {
     public function upload(array $data): iterable;
+
+    public function getBatchGroup(): string;
 }

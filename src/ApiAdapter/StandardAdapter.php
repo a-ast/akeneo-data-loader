@@ -2,36 +2,29 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-use Aa\AkeneoDataLoader\Batch\BatchGenerator;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 
-class StandardAdapter implements Uploadable
+class StandardAdapter implements ApiAdapterInterface, BatchUploadable
 {
     /**
      * @var UpsertableResourceListInterface
      */
     private $api;
 
-    /**
-     * @var int
-     */
-    private $upsertBatchSize;
-
-    public function __construct(UpsertableResourceListInterface $api, int $upsertBatchSize = 100)
+    public function __construct(UpsertableResourceListInterface $api)
     {
         $this->api = $api;
-
-        $this->upsertBatchSize = $upsertBatchSize;
     }
 
-    public function upload(iterable $data): iterable
+    public function upload(array $data): iterable
     {
-        $batchGenerator = new BatchGenerator($this->upsertBatchSize);
+        $response = $this->api->upsertList($data);
 
-        foreach ($batchGenerator->getBatches($data) as $batch) {
-            $response = $this->api->upsertList($batch);
+        return $response;
+    }
 
-            yield from $response;
-        }
+    public function getBatchGroup(): string
+    {
+        return '';
     }
 }

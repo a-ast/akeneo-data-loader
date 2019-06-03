@@ -3,11 +3,11 @@
 namespace spec\Aa\AkeneoDataLoader\Api;
 
 use Aa\AkeneoDataLoader\Api\Configuration;
-use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
+use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
+use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use Akeneo\Pim\ApiClient\Api\ProductApiInterface;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ApiSelectorSpec extends ObjectBehavior
 {
@@ -21,6 +21,7 @@ class ApiSelectorSpec extends ObjectBehavior
 
     function it_selects_api()
     {
-        $this->select('product')->shouldHaveType(Uploadable::class);
+        $this->select('product')->shouldHaveType(ApiAdapterInterface::class);
+        $this->select('product')->shouldHaveType(BatchUploadable::class);
     }
 }

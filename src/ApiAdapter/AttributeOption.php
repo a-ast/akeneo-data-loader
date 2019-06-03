@@ -2,39 +2,30 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-use Aa\AkeneoDataLoader\Batch\ChannelingBatchGenerator;
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
-use Traversable;
 
-class AttributeOption implements Uploadable
+
+class AttributeOption implements ApiAdapterInterface, BatchUploadable
 {
     /**
      * @var AttributeOptionApiInterface
      */
     private $api;
 
-    /**
-     * @var int
-     */
-    private $upsertBatchSize;
-
-    public function __construct(AttributeOptionApiInterface $api, int $upsertBatchSize = 100)
+    public function __construct(AttributeOptionApiInterface $api)
     {
         $this->api = $api;
-        $this->upsertBatchSize = $upsertBatchSize;
     }
 
-    public function upload(iterable $data): iterable
+    public function upload(array $data): iterable
     {
-        $batchGenerator = new ChannelingBatchGenerator($this->upsertBatchSize, 'attribute');
+        $attribute = $data[0]['attribute'];
 
-        foreach ($batchGenerator->getBatches($data) as $options) {
+        return $this->api->upsertList($attribute, $data);
+    }
 
-            $attribute = $options[0]['attribute'];
-
-            $response = $this->api->upsertList($attribute, $options);
-
-            yield from $response;
-        }
+    public function getBatchGroup(): string
+    {
+        return 'attribute';
     }
 }

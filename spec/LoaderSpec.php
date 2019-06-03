@@ -2,8 +2,9 @@
 
 namespace spec\Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
+use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
 use Aa\AkeneoDataLoader\Api\ApiSelector;
+use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
 use Aa\AkeneoDataLoader\Response\ResponseValidator;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -15,16 +16,19 @@ class LoaderSpec extends ObjectBehavior
         $this->beConstructedWith($apiSelector, $validator);
     }
 
-    function it_loads(ApiSelector $apiSelector, ResponseValidator $validator, Uploadable $api)
+    function it_loads(ApiSelector $apiSelector, ResponseValidator $validator, ApiAdapterInterface $api)
     {
+        $data = [['a' => 1]];
+        $response = [['b' => 2]];
+
         $apiSelector->select('product')->willReturn($api);
 
-        $request = ['a' => 1];
-        $response = ['b' => 2];
-        $api->upload($request)->willReturn($response);
+        $api->implement(BatchUploadable::class);
+        $api->getBatchGroup()->willReturn('');
+        $api->upload($data)->willReturn($response);
 
         $validator->validate($response)->shouldBeCalled();
 
-        $this->load('product', $request);
+        $this->load('product', $data);
     }
 }

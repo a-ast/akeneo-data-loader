@@ -20,7 +20,7 @@ class LoaderFactory
         $apiSelector = new ApiSelector($client, $configuration);
         $responseValidator = new ResponseValidator();
 
-        return new Loader($apiSelector, $responseValidator);
+        return new Loader($apiSelector, $responseValidator, $configuration->getUpsertBatchSize());
     }
 
     public function createByCredentials(Credentials $apiCredentials, Configuration $configuration = null): LoaderInterface

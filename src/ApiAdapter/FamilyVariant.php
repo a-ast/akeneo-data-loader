@@ -2,42 +2,34 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
-use Aa\AkeneoDataLoader\Batch\ChannelingBatchGenerator;
 use Akeneo\Pim\ApiClient\Api\FamilyVariantApiInterface;
 
-class FamilyVariant implements Uploadable
+
+class FamilyVariant implements ApiAdapterInterface, BatchUploadable
 {
     /**
      * @var FamilyVariantApiInterface
      */
     private $api;
 
-    /**
-     * @var int
-     */
-    private $upsertBatchSize;
-
-    public function __construct(FamilyVariantApiInterface $api, int $upsertBatchSize = 100)
+    public function __construct(FamilyVariantApiInterface $api)
     {
         $this->api = $api;
-        $this->upsertBatchSize = $upsertBatchSize;
     }
 
-    public function upload(iterable $data): iterable
+    public function upload(array $data): iterable
     {
-        $batchGenerator = new ChannelingBatchGenerator($this->upsertBatchSize, 'family');
+        $family = $data[0]['family'];
 
-        foreach ($batchGenerator->getBatches($data) as $variants) {
-
-            $family = $variants[0]['family'];
-
-            foreach ($variants as &$variant) {
-                unset($variant['family']);
-            }
-
-            $response = $this->api->upsertList($family, $variants);
-
-            yield from $response;
+        foreach ($data as &$variant) {
+            unset($variant['family']);
         }
+
+        return $this->api->upsertList($family, $data);
+    }
+
+    public function getBatchGroup(): string
+    {
+        return 'family';
     }
 }
