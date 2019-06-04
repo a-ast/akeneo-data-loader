@@ -2,6 +2,7 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
+use Aa\AkeneoDataLoader\Response\ResponseBag;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 
 class StandardAdapter implements ApiAdapterInterface, BatchUploadable
@@ -16,11 +17,11 @@ class StandardAdapter implements ApiAdapterInterface, BatchUploadable
         $this->api = $api;
     }
 
-    public function upload(array $data): iterable
+    public function upload(array $data): ResponseBag
     {
         $response = $this->api->upsertList($data);
 
-        return $response;
+        return ResponseBag::create($response);
     }
 
     public function getBatchGroup(): string

@@ -2,7 +2,9 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
+use Aa\AkeneoDataLoader\Response\ResponseBag;
+
 interface Uploadable
 {
-    public function upload(array $data): iterable;
+    public function upload(array $data): ResponseBag;
 }

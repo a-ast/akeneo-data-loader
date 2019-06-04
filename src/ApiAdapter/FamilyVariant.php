@@ -2,6 +2,7 @@
 
 namespace Aa\AkeneoDataLoader\ApiAdapter;
 
+use Aa\AkeneoDataLoader\Response\ResponseBag;
 use Akeneo\Pim\ApiClient\Api\FamilyVariantApiInterface;
 
 
@@ -17,7 +18,7 @@ class FamilyVariant implements ApiAdapterInterface, BatchUploadable
         $this->api = $api;
     }
 
-    public function upload(array $data): iterable
+    public function upload(array $data): ResponseBag
     {
         $family = $data[0]['family'];
 
@@ -25,7 +26,9 @@ class FamilyVariant implements ApiAdapterInterface, BatchUploadable
             unset($variant['family']);
         }
 
-        return $this->api->upsertList($family, $data);
+        $responses = $this->api->upsertList($family, $data);
+
+        return ResponseBag::create($responses);
     }
 
     public function getBatchGroup(): string

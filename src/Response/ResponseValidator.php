@@ -9,7 +9,7 @@ class ResponseValidator
     /**
      * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
      */
-    public function validate(iterable $responses)
+    public function validate(ResponseBag $responses)
     {
         $errors = [];
 

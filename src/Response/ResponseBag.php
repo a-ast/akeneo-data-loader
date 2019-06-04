@@ -4,21 +4,20 @@ namespace Aa\AkeneoDataLoader\Response;
 
 use ArrayIterator;
 use IteratorAggregate;
-use Traversable;
 
 class ResponseBag implements IteratorAggregate
 {
     /**
-     * @var Traversable
+     * @var iterable
      */
     private $responses;
 
-    private function __construct(Traversable $responses)
+    private function __construct(iterable $responses)
     {
         $this->responses = $responses;
     }
 
-    public static function create(Traversable $responses): ResponseBag
+    public static function create(iterable $responses): ResponseBag
     {
         return new static($responses);
     }
