@@ -24,6 +24,10 @@ class ResponseBag implements IteratorAggregate
 
     public function getIterator()
     {
+        if ($this->responses instanceof \Iterator) {
+            return $this->responses;
+        }
+
         return new ArrayIterator($this->responses);
     }
 }
