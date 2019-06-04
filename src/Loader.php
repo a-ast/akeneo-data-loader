@@ -40,14 +40,6 @@ class Loader implements LoaderInterface
     {
         $api = $this->apiSelector->select($apiAlias);
 
-        if ($api instanceof Uploadable) {
-            foreach ($dataProvider as $item) {
-                $response = $api->upload($item);
-
-                $this->validator->validate($response);
-            }
-        }
-
         if ($api instanceof BatchUploadable) {
 
             $group = $api->getBatchGroup();
@@ -60,6 +52,15 @@ class Loader implements LoaderInterface
                 $this->validator->validate($response);
             }
         }
+
+        if ($api instanceof Uploadable) {
+            foreach ($dataProvider as $item) {
+                $response = $api->upload($item);
+
+                $this->validator->validate($response);
+            }
+        }
+
     }
 
     private function getBatchGenerator(string $group)
