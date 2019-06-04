@@ -22,6 +22,17 @@ class ResponseBag implements IteratorAggregate
         return new static($responses);
     }
 
+    public static function createByStatusCodeList(iterable $statusCodes)
+    {
+        $responses = [];
+
+        foreach ($statusCodes as $statusCode) {
+            $responses[] = ['status_code' => $statusCode];
+        }
+
+        return new static($responses);
+    }
+
     public function getIterator()
     {
         if ($this->responses instanceof \Iterator) {
