@@ -3,6 +3,7 @@
 namespace Aa\AkeneoDataLoader;
 
 use Aa\AkeneoDataLoader\Api\ApiSelector;
+use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
 use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Aa\AkeneoDataLoader\Batch\BatchGenerator;
@@ -12,9 +13,9 @@ use Aa\AkeneoDataLoader\Response\ResponseValidator;
 class Loader implements LoaderInterface
 {
     /**
-     * @var ApiSelector
+     * @var RegistryInterface
      */
-    private $apiSelector;
+    private $apiRegistry;
 
     /**
      * @var ResponseValidator
@@ -26,19 +27,20 @@ class Loader implements LoaderInterface
      */
     private $upsertBatchSize;
 
-    public function __construct(ApiSelector $apiSelector, ResponseValidator $validator, int $upsertBatchSize = 100)
+    public function __construct(RegistryInterface $apiRegistry, ResponseValidator $validator, int $upsertBatchSize = 100)
     {
-        $this->apiSelector = $apiSelector;
+        $this->apiRegistry = $apiRegistry;
         $this->validator = $validator;
         $this->upsertBatchSize = $upsertBatchSize;
     }
 
     /**
      * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
+     * @throws \Aa\AkeneoDataLoader\Exception\UnknownDataTypeException
      */
     public function load(string $apiAlias, iterable $dataProvider)
     {
-        $api = $this->apiSelector->select($apiAlias);
+        $api = $this->apiRegistry->get($apiAlias);
 
         if ($api instanceof BatchUploadable) {
 

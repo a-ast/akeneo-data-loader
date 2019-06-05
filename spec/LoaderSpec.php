@@ -2,6 +2,7 @@
 
 namespace spec\Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
 use Aa\AkeneoDataLoader\Api\ApiSelector;
 use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
@@ -12,16 +13,16 @@ use Prophecy\Argument;
 
 class LoaderSpec extends ObjectBehavior
 {
-    function let(ApiSelector $apiSelector, ResponseValidator $validator)
+    function let(RegistryInterface $apiRegistry, ResponseValidator $validator)
     {
-        $this->beConstructedWith($apiSelector, $validator);
+        $this->beConstructedWith($apiRegistry, $validator);
     }
 
-    function it_loads(ApiSelector $apiSelector, ResponseValidator $validator, ApiAdapterInterface $api, ResponseBag $responseBag)
+    function it_loads_data(RegistryInterface $apiRegistry, ResponseValidator $validator, ApiAdapterInterface $api, ResponseBag $responseBag)
     {
         $data = [['a' => 1]];
 
-        $apiSelector->select('product')->willReturn($api);
+        $apiRegistry->get('product')->willReturn($api);
 
         $api->implement(BatchUploadable::class);
         $api->getBatchGroup()->willReturn('');
