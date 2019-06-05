@@ -27,11 +27,12 @@ class Loader implements LoaderInterface
      */
     private $configuration;
 
-    public function __construct(RegistryInterface $apiRegistry, ResponseValidator $validator, Configuration $configuration)
+    public function __construct(RegistryInterface $apiRegistry, Configuration $configuration)
     {
         $this->apiRegistry = $apiRegistry;
-        $this->validator = $validator;
         $this->configuration = $configuration;
+
+        $this->validator = new ResponseValidator();
     }
 
     /**

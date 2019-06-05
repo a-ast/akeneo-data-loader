@@ -9,7 +9,6 @@ use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\AttributeOption;
 use Aa\AkeneoDataLoader\ApiAdapter\FamilyVariant;
 use Aa\AkeneoDataLoader\ApiAdapter\StandardAdapter;
-use Aa\AkeneoDataLoader\Response\ResponseValidator;
 use Akeneo\Pim\ApiClient\AkeneoPimClientBuilder;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 
@@ -20,36 +19,21 @@ class LoaderFactory
      */
     private $configuration;
 
-    /**
-     * @var ?RegistryInterface
-     */
-    private $apiRegistry;
-
-    public function __construct(Configuration $configuration = null, RegistryInterface $apiRegistry = null)
+    public function __construct(Configuration $configuration = null)
     {
         $this->configuration = $configuration ?? Configuration::create('');
-        $this->apiRegistry = $apiRegistry;
-    }
-
-    public function createByApiClient(AkeneoPimClientInterface $client): LoaderInterface
-    {
-        if (null === $this->apiRegistry) {
-            $this->apiRegistry = $this->createApiRegistry($client);
-        }
-
-        $responseValidator = $this->createResponseValidator();
-
-        return new Loader($this->apiRegistry, $responseValidator, $this->configuration);
     }
 
     public function createByCredentials(Credentials $apiCredentials): LoaderInterface
     {
         $client = $this->createApiClient($apiCredentials);
 
-        return $this->createByApiClient($client);
+        $registry = $this->createRegistry($client);
+
+        return new Loader($registry, $this->configuration);
     }
 
-    protected function createApiRegistry(AkeneoPimClientInterface $client): Registry
+    private function createRegistry(AkeneoPimClientInterface $client): RegistryInterface
     {
         $registry = new Registry();
 
@@ -63,11 +47,11 @@ class LoaderFactory
             ->register('family-variant',   new FamilyVariant($client->getFamilyVariantApi()))
             ->register('product',          new StandardAdapter($client->getProductApi()))
             ->register('product-model',    new StandardAdapter($client->getProductModelApi()));
-        
+
         return $registry;
     }
 
-    protected function createApiClient(Credentials $apiCredentials): AkeneoPimClientInterface
+    private function createApiClient(Credentials $apiCredentials): AkeneoPimClientInterface
     {
         $clientBuilder = new AkeneoPimClientBuilder($apiCredentials->getBaseUri());
 
@@ -77,15 +61,5 @@ class LoaderFactory
             $apiCredentials->getUsername(),
             $apiCredentials->getPassword()
         );
-    }
-
-    protected function createResponseValidator(): ResponseValidator
-    {
-        return new ResponseValidator();
-    }
-
-    protected function getConfiguration(): Configuration
-    {
-        return $this->configuration;
     }
 }

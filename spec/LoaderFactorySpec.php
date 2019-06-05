@@ -16,11 +16,6 @@ class LoaderFactorySpec extends ObjectBehavior
         $this->beConstructedWith($configuration, $registry);
     }
 
-    function it_creates_from_api_client(AkeneoPimClientInterface $client)
-    {
-        $this->createByApiClient($client)->shouldHaveType(LoaderInterface::class);
-    }
-
     function it_creates_from_credentials(Credentials $credentials)
     {
         $credentials->getBaseUri()->willReturn('uri');

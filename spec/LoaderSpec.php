@@ -12,14 +12,14 @@ use PhpSpec\ObjectBehavior;
 
 class LoaderSpec extends ObjectBehavior
 {
-    function let(RegistryInterface $apiRegistry, ResponseValidator $validator, Configuration $configuration)
+    function let(RegistryInterface $apiRegistry, Configuration $configuration)
     {
         $configuration->getUpsertBatchSize()->willReturn(100);
 
-        $this->beConstructedWith($apiRegistry, $validator, $configuration);
+        $this->beConstructedWith($apiRegistry, $configuration);
     }
 
-    function it_loads_data(RegistryInterface $apiRegistry, ResponseValidator $validator, ApiAdapterInterface $api, ResponseBag $responseBag)
+    function it_loads_data(RegistryInterface $apiRegistry, ApiAdapterInterface $api)
     {
         $data = [['a' => 1]];
 
@@ -27,9 +27,8 @@ class LoaderSpec extends ObjectBehavior
 
         $api->implement(BatchUploadable::class);
         $api->getBatchGroup()->willReturn('');
-        $api->upload($data)->willReturn($responseBag);
 
-        $validator->validate($responseBag)->shouldBeCalled();
+        $api->upload($data)->willReturn(ResponseBag::create([['status_code' => 201]]));
 
         $this->load('product', $data);
     }
