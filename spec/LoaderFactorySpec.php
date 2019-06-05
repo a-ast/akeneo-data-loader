@@ -4,16 +4,14 @@ namespace spec\Aa\AkeneoDataLoader;
 
 use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\Credentials;
-use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\LoaderInterface;
-use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use PhpSpec\ObjectBehavior;
 
 class LoaderFactorySpec extends ObjectBehavior
 {
-    function let(Configuration $configuration, RegistryInterface $registry)
+    function let(Configuration $configuration)
     {
-        $this->beConstructedWith($configuration, $registry);
+        $this->beConstructedWith($configuration);
     }
 
     function it_creates_from_credentials(Credentials $credentials)
