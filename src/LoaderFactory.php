@@ -21,7 +21,7 @@ class LoaderFactory
     private $configuration;
 
     /**
-     * @var RegistryInterface
+     * @var ?RegistryInterface
      */
     private $apiRegistry;
 
