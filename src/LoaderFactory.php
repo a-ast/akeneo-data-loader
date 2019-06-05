@@ -33,7 +33,7 @@ class LoaderFactory
         return new Loader($registry, $this->configuration);
     }
 
-    private function createRegistry(AkeneoPimClientInterface $client): RegistryInterface
+    protected function createRegistry(AkeneoPimClientInterface $client): RegistryInterface
     {
         $registry = new Registry();
 
