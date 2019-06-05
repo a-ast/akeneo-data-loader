@@ -16,7 +16,7 @@ class RegistrySpec extends ObjectBehavior
 
     function it_registers_an_api(ApiAdapterInterface $api)
     {
-        $this->register('alias', $api);
+        $this->register('alias', $api)->shouldReturn($this);
     }
 
     function it_gets_a_registered_api(ApiAdapterInterface $api)

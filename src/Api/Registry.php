@@ -12,9 +12,11 @@ class Registry implements RegistryInterface
      */
     private $items;
 
-    public function register(string $alias, ApiAdapterInterface $api)
+    public function register(string $alias, ApiAdapterInterface $api): RegistryInterface
     {
         $this->items[$alias] = $api;
+
+        return $this;
     }
 
     /**
