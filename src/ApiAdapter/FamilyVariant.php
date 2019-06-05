@@ -5,7 +5,6 @@ namespace Aa\AkeneoDataLoader\ApiAdapter;
 use Aa\AkeneoDataLoader\Response\ResponseBag;
 use Akeneo\Pim\ApiClient\Api\FamilyVariantApiInterface;
 
-
 class FamilyVariant implements ApiAdapterInterface, BatchUploadable
 {
     /**

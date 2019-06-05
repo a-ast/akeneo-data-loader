@@ -23,7 +23,7 @@ class Loader implements LoaderInterface
     private $validator;
 
     /**
-     * @var \Aa\AkeneoDataLoader\Api\Configuration
+     * @var Configuration
      */
     private $configuration;
 

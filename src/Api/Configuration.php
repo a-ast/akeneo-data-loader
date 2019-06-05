@@ -4,7 +4,6 @@ namespace Aa\AkeneoDataLoader\Api;
 
 class Configuration
 {
-
     /**
      * @var string
      */

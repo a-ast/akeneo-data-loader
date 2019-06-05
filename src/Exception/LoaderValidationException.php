@@ -2,7 +2,9 @@
 
 namespace Aa\AkeneoDataLoader\Exception;
 
-class LoaderValidationException extends \Exception
+use Exception;
+
+class LoaderValidationException extends Exception
 {
     /**
      * @var array
