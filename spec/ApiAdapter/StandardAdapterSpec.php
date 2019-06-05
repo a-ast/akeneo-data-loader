@@ -5,7 +5,6 @@ namespace spec\Aa\AkeneoDataLoader\Upsert;
 use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceInterface;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class StandardAdapterSpec extends ObjectBehavior
 {

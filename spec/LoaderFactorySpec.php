@@ -8,7 +8,6 @@ use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\LoaderInterface;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class LoaderFactorySpec extends ObjectBehavior
 {

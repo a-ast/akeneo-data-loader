@@ -3,7 +3,6 @@
 namespace spec\Aa\AkeneoDataLoader\Api;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ConfigurationSpec extends ObjectBehavior
 {

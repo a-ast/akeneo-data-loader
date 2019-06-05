@@ -3,7 +3,6 @@
 namespace spec\Aa\AkeneoDataLoader\Batch;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ChannelingBatchGeneratorSpec extends ObjectBehavior
 {

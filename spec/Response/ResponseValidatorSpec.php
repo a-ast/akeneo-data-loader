@@ -4,10 +4,7 @@ namespace spec\Aa\AkeneoDataLoader\Response;
 
 use Aa\AkeneoDataLoader\Exception\LoaderValidationException;
 use Aa\AkeneoDataLoader\Response\ResponseBag;
-use Aa\AkeneoDataLoader\Response\ResponseValidator;
-use ArrayObject;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ResponseValidatorSpec extends ObjectBehavior
 {
