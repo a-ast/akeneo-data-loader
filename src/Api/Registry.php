@@ -5,7 +5,7 @@ namespace Aa\AkeneoDataLoader\Api;
 use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
 use Aa\AkeneoDataLoader\Exception\UnknownDataTypeException;
 
-class Registry
+class Registry implements RegistryInterface
 {
     /**
      * @var array|ApiAdapterInterface[]

@@ -2,12 +2,18 @@
 
 namespace spec\Aa\AkeneoDataLoader\Api;
 
+use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
 use Aa\AkeneoDataLoader\Exception\UnknownDataTypeException;
 use PhpSpec\ObjectBehavior;
 
 class RegistrySpec extends ObjectBehavior
 {
+    function it_implements_api_registry_interface()
+    {
+        $this->shouldBeAnInstanceOf(RegistryInterface::class);
+    }
+
     function it_registers_an_api(ApiAdapterInterface $api)
     {
         $this->register('alias', $api);
