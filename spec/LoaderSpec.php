@@ -4,12 +4,10 @@ namespace spec\Aa\AkeneoDataLoader;
 
 use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
-use Aa\AkeneoDataLoader\Api\ApiSelector;
 use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
 use Aa\AkeneoDataLoader\Response\ResponseBag;
 use Aa\AkeneoDataLoader\Response\ResponseValidator;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class LoaderSpec extends ObjectBehavior
 {

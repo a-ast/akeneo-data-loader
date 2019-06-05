@@ -2,7 +2,6 @@
 
 namespace Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\Api\ApiSelector;
 use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
 use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
