@@ -2,6 +2,7 @@
 
 namespace spec\Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
@@ -11,9 +12,11 @@ use PhpSpec\ObjectBehavior;
 
 class LoaderSpec extends ObjectBehavior
 {
-    function let(RegistryInterface $apiRegistry, ResponseValidator $validator)
+    function let(RegistryInterface $apiRegistry, ResponseValidator $validator, Configuration $configuration)
     {
-        $this->beConstructedWith($apiRegistry, $validator);
+        $configuration->getUpsertBatchSize()->willReturn(100);
+
+        $this->beConstructedWith($apiRegistry, $validator, $configuration);
     }
 
     function it_loads_data(RegistryInterface $apiRegistry, ResponseValidator $validator, ApiAdapterInterface $api, ResponseBag $responseBag)

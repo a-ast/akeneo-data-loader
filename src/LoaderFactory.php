@@ -39,7 +39,7 @@ class LoaderFactory
 
         $responseValidator = new ResponseValidator();
 
-        return new Loader($this->apiRegistry, $responseValidator, $this->configuration->getUpsertBatchSize());
+        return new Loader($this->apiRegistry, $responseValidator, $this->configuration);
     }
 
     public function createByCredentials(Credentials $apiCredentials): LoaderInterface

@@ -2,6 +2,7 @@
 
 namespace Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\RegistryInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
 use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
@@ -22,15 +23,15 @@ class Loader implements LoaderInterface
     private $validator;
 
     /**
-     * @var int
+     * @var \Aa\AkeneoDataLoader\Api\Configuration
      */
-    private $upsertBatchSize;
+    private $configuration;
 
-    public function __construct(RegistryInterface $apiRegistry, ResponseValidator $validator, int $upsertBatchSize = 100)
+    public function __construct(RegistryInterface $apiRegistry, ResponseValidator $validator, Configuration $configuration)
     {
         $this->apiRegistry = $apiRegistry;
         $this->validator = $validator;
-        $this->upsertBatchSize = $upsertBatchSize;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -61,15 +62,16 @@ class Loader implements LoaderInterface
                 $this->validator->validate($response);
             }
         }
-
     }
 
     private function getBatchGenerator(string $group)
     {
+        $upsertBatchSize = $this->configuration->getUpsertBatchSize();
+
         if ('' === $group) {
-            return new BatchGenerator($this->upsertBatchSize);
+            return new BatchGenerator($upsertBatchSize);
         }
 
-        return new ChannelingBatchGenerator($this->upsertBatchSize, $group);
+        return new ChannelingBatchGenerator($upsertBatchSize, $group);
     }
 }

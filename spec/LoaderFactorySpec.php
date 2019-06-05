@@ -14,9 +14,6 @@ class LoaderFactorySpec extends ObjectBehavior
 {
     function let(Configuration $configuration, RegistryInterface $registry)
     {
-        // @todo: remove after moving config to loader
-        $configuration->getUpsertBatchSize()->willReturn(100);
-
         $this->beConstructedWith($configuration, $registry);
     }
 
