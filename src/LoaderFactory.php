@@ -37,29 +37,19 @@ class LoaderFactory
             $this->apiRegistry = $this->createApiRegistry($client);
         }
 
-        $responseValidator = new ResponseValidator();
+        $responseValidator = $this->createResponseValidator();
 
         return new Loader($this->apiRegistry, $responseValidator, $this->configuration);
     }
 
     public function createByCredentials(Credentials $apiCredentials): LoaderInterface
     {
-        $clientBuilder = new AkeneoPimClientBuilder($apiCredentials->getBaseUri());
-
-        $client = $clientBuilder->buildAuthenticatedByPassword(
-            $apiCredentials->getClientId(),
-            $apiCredentials->getSecret(),
-            $apiCredentials->getUsername(),
-            $apiCredentials->getPassword()
-        );
+        $client = $this->createApiClient($apiCredentials);
 
         return $this->createByApiClient($client);
     }
 
-    /**
-     * @return Registry
-     */
-    private function createApiRegistry(AkeneoPimClientInterface $client): Registry
+    protected function createApiRegistry(AkeneoPimClientInterface $client): Registry
     {
         $registry = new Registry();
 
@@ -75,5 +65,22 @@ class LoaderFactory
             ->register('product-model',    new StandardAdapter($client->getProductModelApi()));
         
         return $registry;
+    }
+
+    protected function createApiClient(Credentials $apiCredentials): AkeneoPimClientInterface
+    {
+        $clientBuilder = new AkeneoPimClientBuilder($apiCredentials->getBaseUri());
+
+        return $clientBuilder->buildAuthenticatedByPassword(
+            $apiCredentials->getClientId(),
+            $apiCredentials->getSecret(),
+            $apiCredentials->getUsername(),
+            $apiCredentials->getPassword()
+        );
+    }
+
+    protected function createResponseValidator(): ResponseValidator
+    {
+        return new ResponseValidator();
     }
 }
