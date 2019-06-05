@@ -83,4 +83,9 @@ class LoaderFactory
     {
         return new ResponseValidator();
     }
+
+    protected function getConfiguration(): Configuration
+    {
+        return $this->configuration;
+    }
 }
