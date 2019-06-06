@@ -6,11 +6,16 @@ use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\Credentials;
 use Aa\AkeneoDataLoader\Api\Registry;
 use Aa\AkeneoDataLoader\Api\RegistryInterface;
+use Aa\AkeneoDataLoader\ApiAdapter\AssetReferenceFile;
+use Aa\AkeneoDataLoader\ApiAdapter\AssetVariationFile;
 use Aa\AkeneoDataLoader\ApiAdapter\AttributeOption;
 use Aa\AkeneoDataLoader\ApiAdapter\FamilyVariant;
+use Aa\AkeneoDataLoader\ApiAdapter\ReferenceEntity;
+use Aa\AkeneoDataLoader\ApiAdapter\ReferenceEntityRecord;
 use Aa\AkeneoDataLoader\ApiAdapter\StandardAdapter;
-use Akeneo\Pim\ApiClient\AkeneoPimClientBuilder;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
+use Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder;
+use Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface;
 
 class LoaderFactory
 {
@@ -48,12 +53,24 @@ class LoaderFactory
             ->register('product',          new StandardAdapter($client->getProductApi()))
             ->register('product-model',    new StandardAdapter($client->getProductModelApi()));
 
+        if ($client instanceof AkeneoPimEnterpriseClientInterface) {
+
+            $uploadDir = $this->configuration->getUploadDir();
+
+            $registry
+                ->register('asset',    new StandardAdapter($client->getAssetApi()))
+                ->register('asset-reference-file', new AssetReferenceFile($client->getAssetReferenceFileApi(), $uploadDir))
+                ->register('asset-variation-file', new AssetVariationFile($client->getAssetVariationFileApi(), $uploadDir))
+                ->register('reference-entity',  new ReferenceEntity($client->getReferenceEntityApi()))
+                ->register('reference-entity-record',  new ReferenceEntityRecord($client->getReferenceEntityRecordApi()));
+        }
+
         return $registry;
     }
 
     private function createApiClient(Credentials $apiCredentials): AkeneoPimClientInterface
     {
-        $clientBuilder = new AkeneoPimClientBuilder($apiCredentials->getBaseUri());
+        $clientBuilder = new AkeneoPimEnterpriseClientBuilder($apiCredentials->getBaseUri());
 
         return $clientBuilder->buildAuthenticatedByPassword(
             $apiCredentials->getClientId(),
