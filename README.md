@@ -4,7 +4,6 @@
 
 Akeneo Data Loader helps you to load data to your Akeneo PIM Community Edition via its REST API. 
 
-For Enterprise Edition please check the [EE version](https://github.com/a-ast/akeneo-data-loader-ee).
 
 ## Use cases
 
