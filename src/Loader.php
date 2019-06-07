@@ -4,11 +4,13 @@ namespace Aa\AkeneoDataLoader;
 
 use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\RegistryInterface;
+use Aa\AkeneoDataLoader\ApiAdapter\ConnectorInterface;
 use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
 use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
 use Aa\AkeneoDataLoader\Batch\BatchGenerator;
 use Aa\AkeneoDataLoader\Batch\ChannelingBatchGenerator;
 use Aa\AkeneoDataLoader\Response\ResponseValidator;
+use Traversable;
 
 class Loader implements LoaderInterface
 {
@@ -43,26 +45,55 @@ class Loader implements LoaderInterface
     {
         $api = $this->apiRegistry->get($apiAlias);
 
-        if ($api instanceof BatchUploadable) {
+        try {
 
-            $group = $api->getBatchGroup();
-            $batchGenerator = $this->getBatchGenerator($group);
+            if ($api instanceof BatchUploadable) {
 
-            foreach ($batchGenerator->getBatches($dataProvider) as $batch) {
+                $batches = $this->getDataBatches($dataProvider, $api->getBatchGroup());
 
-                $response = $api->upload($batch);
-
-                $this->validator->validate($response);
+                $this->uploadBatchesAndValidate($api, $batches);
             }
-        }
 
-        if ($api instanceof Uploadable) {
-            foreach ($dataProvider as $item) {
-                $response = $api->upload($item);
-
-                $this->validator->validate($response);
+            if ($api instanceof Uploadable) {
+                $this->uploadAndValidate($api, $dataProvider);
             }
+
+        } catch (Exception\LoaderValidationException $e) {
+
+
+
         }
+    }
+
+    /**
+     * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
+     */
+    private function uploadAndValidate(Uploadable $api, iterable $dataProvider)
+    {
+        foreach ($dataProvider as $item) {
+            $response = $api->upload($item);
+
+            $this->validator->validate($response);
+        }
+    }
+
+    /**
+     * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
+     */
+    private function uploadBatchesAndValidate(BatchUploadable $api, iterable $dataProvider)
+    {
+        foreach ($dataProvider as $batch) {
+            $response = $api->upload($batch);
+
+            $this->validator->validate($response);
+        }
+    }
+
+    private function getDataBatches(iterable $dataProvider, string $group): Traversable
+    {
+        $batchGenerator = $this->getBatchGenerator($group);
+
+        return $batchGenerator->getBatches($dataProvider);
     }
 
     private function getBatchGenerator(string $group)
