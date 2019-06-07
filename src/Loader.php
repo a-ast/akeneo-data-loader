@@ -2,14 +2,12 @@
 
 namespace Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\Api\Configuration;
-use Aa\AkeneoDataLoader\Api\RegistryInterface;
-use Aa\AkeneoDataLoader\ApiAdapter\ConnectorInterface;
-use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
-use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
+use Aa\AkeneoDataLoader\Connector\Configuration;
+use Aa\AkeneoDataLoader\Connector\RegistryInterface;
+use Aa\AkeneoDataLoader\Connector\BatchUploadable;
+use Aa\AkeneoDataLoader\Connector\Uploadable;
 use Aa\AkeneoDataLoader\Batch\BatchGenerator;
 use Aa\AkeneoDataLoader\Batch\ChannelingBatchGenerator;
-use Aa\AkeneoDataLoader\Response\ResponseValidator;
 use Traversable;
 
 class Loader implements LoaderInterface
@@ -17,75 +15,64 @@ class Loader implements LoaderInterface
     /**
      * @var RegistryInterface
      */
-    private $apiRegistry;
-
-    /**
-     * @var ResponseValidator
-     */
-    private $validator;
+    private $registry;
 
     /**
      * @var Configuration
      */
     private $configuration;
 
-    public function __construct(RegistryInterface $apiRegistry, Configuration $configuration)
+    public function __construct(RegistryInterface $registry, Configuration $configuration)
     {
-        $this->apiRegistry = $apiRegistry;
+        $this->registry = $registry;
         $this->configuration = $configuration;
-
-        $this->validator = new ResponseValidator();
     }
 
     /**
-     * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
+     * @throws \Aa\AkeneoDataLoader\Exception\ConnectorException
      * @throws \Aa\AkeneoDataLoader\Exception\UnknownDataTypeException
      */
-    public function load(string $apiAlias, iterable $dataProvider)
+    public function load(string $alias, iterable $dataProvider)
     {
-        $api = $this->apiRegistry->get($apiAlias);
+        $connector = $this->registry->get($alias);
 
         try {
 
-            if ($api instanceof BatchUploadable) {
+            if ($connector instanceof BatchUploadable) {
 
-                $batches = $this->getDataBatches($dataProvider, $api->getBatchGroup());
+                $batches = $this->getDataBatches($dataProvider, $connector->getBatchGroup());
 
-                $this->uploadBatchesAndValidate($api, $batches);
+                $this->uploadBatchesAndValidate($connector, $batches);
             }
 
-            if ($api instanceof Uploadable) {
-                $this->uploadAndValidate($api, $dataProvider);
+            if ($connector instanceof Uploadable) {
+                $this->uploadAndValidate($connector, $dataProvider);
             }
 
-        } catch (Exception\LoaderValidationException $e) {
+        } catch (Exception\ConnectorException $e) {
 
-
+            // @todo: implement wrapping to LoaderException
 
         }
     }
 
     /**
-     * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
+     * @throws \Aa\AkeneoDataLoader\Exception\ConnectorException
      */
-    private function uploadAndValidate(Uploadable $api, iterable $dataProvider)
+    private function uploadAndValidate(Uploadable $connector, iterable $dataProvider)
     {
         foreach ($dataProvider as $item) {
-            $response = $api->upload($item);
-
-            $this->validator->validate($response);
+            $connector->upload($item);
         }
     }
 
     /**
-     * @throws \Aa\AkeneoDataLoader\Exception\LoaderValidationException
+     * @throws \Aa\AkeneoDataLoader\Exception\ConnectorException
      */
-    private function uploadBatchesAndValidate(BatchUploadable $api, iterable $dataProvider)
+    private function uploadBatchesAndValidate(BatchUploadable $connector, iterable $dataProvider)
     {
         foreach ($dataProvider as $batch) {
-            $response = $api->upload($batch);
-
-            $this->validator->validate($response);
+            $connector->upload($batch);
         }
     }
 
@@ -98,12 +85,12 @@ class Loader implements LoaderInterface
 
     private function getBatchGenerator(string $group)
     {
-        $upsertBatchSize = $this->configuration->getUpsertBatchSize();
+        $batchSize = $this->configuration->getBatchSize();
 
         if ('' === $group) {
-            return new BatchGenerator($upsertBatchSize);
+            return new BatchGenerator($batchSize);
         }
 
-        return new ChannelingBatchGenerator($upsertBatchSize, $group);
+        return new ChannelingBatchGenerator($batchSize, $group);
     }
 }

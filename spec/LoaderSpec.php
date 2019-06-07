@@ -2,24 +2,22 @@
 
 namespace spec\Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\Api\Configuration;
-use Aa\AkeneoDataLoader\Api\RegistryInterface;
-use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
-use Aa\AkeneoDataLoader\ApiAdapter\BatchUploadable;
-use Aa\AkeneoDataLoader\Response\ResponseBag;
-use Aa\AkeneoDataLoader\Response\ResponseValidator;
+use Aa\AkeneoDataLoader\Connector\Configuration;
+use Aa\AkeneoDataLoader\Connector\RegistryInterface;
+use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
+use Aa\AkeneoDataLoader\Connector\BatchUploadable;
 use PhpSpec\ObjectBehavior;
 
 class LoaderSpec extends ObjectBehavior
 {
     function let(RegistryInterface $apiRegistry, Configuration $configuration)
     {
-        $configuration->getUpsertBatchSize()->willReturn(100);
+        $configuration->getBatchSize()->willReturn(100);
 
         $this->beConstructedWith($apiRegistry, $configuration);
     }
 
-    function it_loads_data(RegistryInterface $apiRegistry, ApiAdapterInterface $api)
+    function it_loads_data(RegistryInterface $apiRegistry, ConnectorInterface $api)
     {
         $data = [['a' => 1]];
 
@@ -28,7 +26,7 @@ class LoaderSpec extends ObjectBehavior
         $api->implement(BatchUploadable::class);
         $api->getBatchGroup()->willReturn('');
 
-        $api->upload($data)->willReturn(ResponseBag::create([['status_code' => 201]]));
+        $api->upload($data)->shouldBeCalled();
 
         $this->load('product', $data);
     }

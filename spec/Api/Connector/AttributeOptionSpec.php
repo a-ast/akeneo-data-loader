@@ -1,8 +1,9 @@
 <?php
 
-namespace spec\Aa\AkeneoDataLoader\Upsert;
+namespace spec\Aa\AkeneoDataLoader\Api\Connector;
 
-use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
+use Aa\AkeneoDataLoader\Connector\BatchUploadable;
+use Aa\AkeneoDataLoader\Connector\Uploadable;
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
 use PhpSpec\ObjectBehavior;
 
@@ -15,15 +16,18 @@ class AttributeOptionSpec extends ObjectBehavior
 
     function it_is_upsertable()
     {
-        $this->shouldHaveType(Uploadable::class);
+        $this->shouldHaveType(BatchUploadable::class);
     }
 
     function it_upserts(AttributeOptionApiInterface $api)
     {
         $data = ['attribute' => 'size', 'code' => 'XL', 'a' => 1];
 
-        $api->upsert('size', 'XL', $data)->shouldBeCalled();
+        $api
+            ->upsertList('size', [$data])
+            ->willReturn(new \ArrayObject([['status_code' => 201]]))
+            ->shouldBeCalled();
 
-        $this->upload($data);
+        $this->upload([$data]);
     }
 }

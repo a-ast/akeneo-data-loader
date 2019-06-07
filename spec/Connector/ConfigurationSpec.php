@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Aa\AkeneoDataLoader\Api;
+namespace spec\Aa\AkeneoDataLoader\Connector;
 
 use PhpSpec\ObjectBehavior;
 
@@ -11,6 +11,6 @@ class ConfigurationSpec extends ObjectBehavior
         $this->beConstructedThrough('create', ['uploadDir', 10]);
 
         $this->getUploadDir()->shouldReturn('uploadDir');
-        $this->getUpsertBatchSize()->shouldReturn(10);
+        $this->getBatchSize()->shouldReturn(10);
     }
 }

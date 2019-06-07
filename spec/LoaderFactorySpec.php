@@ -2,8 +2,8 @@
 
 namespace spec\Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\Credentials;
+use Aa\AkeneoDataLoader\Connector\Configuration;
 use Aa\AkeneoDataLoader\LoaderInterface;
 use PhpSpec\ObjectBehavior;
 

@@ -2,17 +2,17 @@
 
 namespace Aa\AkeneoDataLoader;
 
-use Aa\AkeneoDataLoader\Api\Configuration;
 use Aa\AkeneoDataLoader\Api\Credentials;
-use Aa\AkeneoDataLoader\Api\Registry;
-use Aa\AkeneoDataLoader\Api\RegistryInterface;
-use Aa\AkeneoDataLoader\ApiAdapter\AssetReferenceFile;
-use Aa\AkeneoDataLoader\ApiAdapter\AssetVariationFile;
-use Aa\AkeneoDataLoader\ApiAdapter\AttributeOption;
-use Aa\AkeneoDataLoader\ApiAdapter\FamilyVariant;
-use Aa\AkeneoDataLoader\ApiAdapter\ReferenceEntity;
-use Aa\AkeneoDataLoader\ApiAdapter\ReferenceEntityRecord;
-use Aa\AkeneoDataLoader\ApiAdapter\StandardAdapter;
+use Aa\AkeneoDataLoader\Api\Connector\AssetReferenceFile;
+use Aa\AkeneoDataLoader\Api\Connector\AssetVariationFile;
+use Aa\AkeneoDataLoader\Api\Connector\AttributeOption;
+use Aa\AkeneoDataLoader\Api\Connector\FamilyVariant;
+use Aa\AkeneoDataLoader\Api\Connector\ReferenceEntity;
+use Aa\AkeneoDataLoader\Api\Connector\ReferenceEntityRecord;
+use Aa\AkeneoDataLoader\Api\Connector\StandardAdapter;
+use Aa\AkeneoDataLoader\Connector\Configuration;
+use Aa\AkeneoDataLoader\Connector\Registry;
+use Aa\AkeneoDataLoader\Connector\RegistryInterface;
 use Akeneo\Pim\ApiClient\AkeneoPimClientInterface;
 use Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientBuilder;
 use Akeneo\PimEnterprise\ApiClient\AkeneoPimEnterpriseClientInterface;

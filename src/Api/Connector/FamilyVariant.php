@@ -1,11 +1,13 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\ApiAdapter;
+namespace Aa\AkeneoDataLoader\Api\Connector;
 
-use Aa\AkeneoDataLoader\Response\ResponseBag;
+use Aa\AkeneoDataLoader\Connector\BatchUploadable;
+use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
+use Aa\AkeneoDataLoader\Api\Response\ResponseValidator;
 use Akeneo\Pim\ApiClient\Api\FamilyVariantApiInterface;
 
-class FamilyVariant implements ApiAdapterInterface, BatchUploadable
+class FamilyVariant implements ConnectorInterface, BatchUploadable
 {
     /**
      * @var FamilyVariantApiInterface
@@ -17,7 +19,7 @@ class FamilyVariant implements ApiAdapterInterface, BatchUploadable
         $this->api = $api;
     }
 
-    public function upload(array $data): ResponseBag
+    public function upload(array $data)
     {
         $family = $data[0]['family'];
 
@@ -27,7 +29,7 @@ class FamilyVariant implements ApiAdapterInterface, BatchUploadable
 
         $responses = $this->api->upsertList($family, $data);
 
-        return ResponseBag::create($responses);
+        ResponseValidator::validate($responses);
     }
 
     public function getBatchGroup(): string

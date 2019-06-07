@@ -1,13 +1,13 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\ApiAdapter;
+namespace Aa\AkeneoDataLoader\Api\Connector;
 
-use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
-use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
-use Aa\AkeneoDataLoader\Response\ResponseBag;
+use Aa\AkeneoDataLoader\Api\Response\ResponseValidator;
+use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
+use Aa\AkeneoDataLoader\Connector\Uploadable;
 use Akeneo\PimEnterprise\ApiClient\Api\AssetReferenceFileApiInterface;
 
-class AssetReferenceFile implements ApiAdapterInterface, Uploadable
+class AssetReferenceFile implements ConnectorInterface, Uploadable
 {
     /**
      * @var AssetReferenceFileApiInterface
@@ -25,11 +25,11 @@ class AssetReferenceFile implements ApiAdapterInterface, Uploadable
         $this->uploadDir = $uploadDir;
     }
 
-    public function upload(array $data): ResponseBag
+    public function upload(array $data)
     {
         $statusCode = $this->uploadData($data);
 
-        return ResponseBag::createByStatusCodeList([$statusCode]);
+        ResponseValidator::validateStatusCode($statusCode);
     }
 
     private function uploadData(array $data): int

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\Api;
+namespace Aa\AkeneoDataLoader\Connector;
 
 class Configuration
 {
@@ -30,7 +30,7 @@ class Configuration
         return $this->uploadDir;
     }
 
-    public function getUpsertBatchSize(): int
+    public function getBatchSize(): int
     {
         return $this->upsertBatchSize;
     }

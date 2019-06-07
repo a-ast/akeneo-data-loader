@@ -1,13 +1,13 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\ApiAdapter;
+namespace Aa\AkeneoDataLoader\Api\Connector;
 
-use Aa\AkeneoDataLoader\ApiAdapter\ApiAdapterInterface;
-use Aa\AkeneoDataLoader\ApiAdapter\Uploadable;
-use Aa\AkeneoDataLoader\Response\ResponseBag;
+use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
+use Aa\AkeneoDataLoader\Connector\Uploadable;
+use Aa\AkeneoDataLoader\Api\Response\ResponseValidator;
 use Akeneo\PimEnterprise\ApiClient\Api\ReferenceEntityApiInterface;
 
-class ReferenceEntity implements ApiAdapterInterface, Uploadable
+class ReferenceEntity implements ConnectorInterface, Uploadable
 {
     /**
      * @var ReferenceEntityApiInterface
@@ -23,12 +23,14 @@ class ReferenceEntity implements ApiAdapterInterface, Uploadable
      * Upload a reference entity.
      *
      * Important: batch mode is not yet supported in Akeneo API.
+     *
+     * @throws \Aa\AkeneoDataLoader\Exception\ConnectorException
      */
-    public function upload(array $data): ResponseBag
+    public function upload(array $data)
     {
         $referenceEntityCode = $data['code'];
         $statusCode = $this->api->upsert($referenceEntityCode, $data);
 
-        return ResponseBag::createByStatusCodeList([$statusCode]);
+        ResponseValidator::validateStatusCode($statusCode);
     }
 }

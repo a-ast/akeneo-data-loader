@@ -1,11 +1,13 @@
 <?php
 
-namespace Aa\AkeneoDataLoader\ApiAdapter;
+namespace Aa\AkeneoDataLoader\Api\Connector;
 
-use Aa\AkeneoDataLoader\Response\ResponseBag;
+use Aa\AkeneoDataLoader\Connector\BatchUploadable;
+use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
+use Aa\AkeneoDataLoader\Api\Response\ResponseValidator;
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
 
-class AttributeOption implements ApiAdapterInterface, BatchUploadable
+class AttributeOption implements ConnectorInterface, BatchUploadable
 {
     /**
      * @var AttributeOptionApiInterface
@@ -17,13 +19,13 @@ class AttributeOption implements ApiAdapterInterface, BatchUploadable
         $this->api = $api;
     }
 
-    public function upload(array $data): ResponseBag
+    public function upload(array $data)
     {
         $attribute = $data[0]['attribute'];
 
         $responses = $this->api->upsertList($attribute, $data);
 
-        return ResponseBag::create($responses);
+        ResponseValidator::validate($responses);
     }
 
     public function getBatchGroup(): string
