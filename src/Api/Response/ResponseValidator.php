@@ -16,7 +16,12 @@ final class ResponseValidator
 
         foreach ($responses as $response) {
             if (false === in_array($response['status_code'], [201, 204])) {
-                $errors[] = $response;
+                $errors[] = sprintf(
+                    '%s: %s. Response status code: %d.',
+                    $response['code'] ?? '',
+                    $response['message'] ?? '',
+                    $response['status_code'] ?? ''
+                );
             }
         }
 
@@ -35,8 +40,7 @@ final class ResponseValidator
         }
 
         throw new ConnectorException([
-            'status_code' => $statusCode,
-            'message' => sprintf('Loading failed. Status code: %d', $statusCode),
+            sprintf('Loading failed. Status code: %d', $statusCode),
         ]);
 
     }
