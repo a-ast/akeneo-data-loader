@@ -8,6 +8,9 @@ use Aa\AkeneoDataLoader\Connector\BatchUploadable;
 use Aa\AkeneoDataLoader\Connector\Uploadable;
 use Aa\AkeneoDataLoader\Batch\BatchGenerator;
 use Aa\AkeneoDataLoader\Batch\ChannelingBatchGenerator;
+use Aa\AkeneoDataLoader\Exception\ConnectorException;
+use Aa\AkeneoDataLoader\Exception\LoaderException;
+use Exception;
 use Traversable;
 
 class Loader implements LoaderInterface
@@ -29,19 +32,17 @@ class Loader implements LoaderInterface
     }
 
     /**
-     * @throws \Aa\AkeneoDataLoader\Exception\ConnectorException
-     * @throws \Aa\AkeneoDataLoader\Exception\UnknownDataTypeException
+     * @throws \Aa\AkeneoDataLoader\Exception\LoaderException
      */
     public function load(string $alias, iterable $dataProvider)
     {
-        $connector = $this->registry->get($alias);
-
         try {
+
+            $connector = $this->registry->get($alias);
 
             if ($connector instanceof BatchUploadable) {
 
                 $batches = $this->getDataBatches($dataProvider, $connector->getBatchGroup());
-
                 $this->uploadBatchesAndValidate($connector, $batches);
             }
 
@@ -49,10 +50,10 @@ class Loader implements LoaderInterface
                 $this->uploadAndValidate($connector, $dataProvider);
             }
 
-        } catch (Exception\ConnectorException $e) {
-
-            // @todo: implement wrapping to LoaderException
-
+        } catch (ConnectorException $e) {
+            throw new LoaderException($e->getMessage(), $alias, $e->getErrors());
+        } catch (Exception $e) {
+            throw new LoaderException($e->getMessage(), $alias, []);
         }
     }
 

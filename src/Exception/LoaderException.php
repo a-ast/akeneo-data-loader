@@ -16,12 +16,12 @@ class LoaderException extends Exception
      */
     private $connectorAlias;
 
-    public function __construct(string $connectorAlias, array $errors)
+    public function __construct(string $message, string $connectorAlias, array $errors)
     {
         $this->connectorAlias = $connectorAlias;
         $this->errors = $errors;
 
-        parent::__construct('Data loading failed.');
+        parent::__construct($message);
     }
 
     public function getConnectorAlias(): string
