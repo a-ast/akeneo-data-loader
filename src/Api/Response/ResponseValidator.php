@@ -3,7 +3,6 @@
 namespace Aa\AkeneoDataLoader\Api\Response;
 
 use Aa\AkeneoDataLoader\Exception\ConnectorException;
-use Traversable;
 
 final class ResponseValidator
 {
@@ -12,16 +11,13 @@ final class ResponseValidator
      */
     public static function validate(iterable $responses)
     {
+        $formatter = new ResponseErrorFormatter();
+
         $errors = [];
 
         foreach ($responses as $response) {
             if (false === in_array($response['status_code'], [201, 204])) {
-                $errors[] = sprintf(
-                    '%s: %s. Response status code: %d.',
-                    $response['code'] ?? '',
-                    $response['message'] ?? '',
-                    $response['status_code'] ?? ''
-                );
+                $errors[] = $formatter->format($response);
             }
         }
 
@@ -42,6 +38,5 @@ final class ResponseValidator
         throw new ConnectorException([
             sprintf('Loading failed. Status code: %d', $statusCode),
         ]);
-
     }
 }

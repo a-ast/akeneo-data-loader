@@ -27,12 +27,7 @@ class ResponseValidatorSpec extends ObjectBehavior
             ['status_code' => 422, 'code' => 'def', 'message' => 'Def failed.'],
         ]);
 
-        $exception = new ConnectorException([
-            ['status_code' => 422, 'code' => 'abc', 'message' => 'Abc failed.'],
-            ['status_code' => 422, 'code' => 'def', 'message' => 'Def failed.'],
-        ]);
-
-        $this->shouldThrow($exception)->during('validate', [$response]);
+        $this->shouldThrow(ConnectorException::class)->during('validate', [$response]);
     }
 
     function it_validates_good_status_code()
