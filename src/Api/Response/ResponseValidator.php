@@ -14,9 +14,11 @@ final class ResponseValidator
         $errors = [];
 
         foreach ($responses as $response) {
-            if (false === in_array($response['status_code'], [201, 204])) {
-                $errors[] = (string)ResponseError::createFromResponse($response);
+            if (null === $response || true === in_array($response['status_code'], [201, 204])) {
+                continue;
             }
+
+            $errors[] = (string)ResponseError::createFromResponse($response);
         }
 
         if (0 !== count($errors)) {
