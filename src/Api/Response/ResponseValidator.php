@@ -11,13 +11,11 @@ final class ResponseValidator
      */
     public static function validate(iterable $responses)
     {
-        $formatter = new ResponseErrorFormatter();
-
         $errors = [];
 
         foreach ($responses as $response) {
             if (false === in_array($response['status_code'], [201, 204])) {
-                $errors[] = $formatter->format($response);
+                $errors[] = (string)ResponseError::createFromResponse($response);
             }
         }
 

@@ -2,13 +2,13 @@
 
 namespace spec\Aa\AkeneoDataLoader\Api\Response;
 
-use Aa\AkeneoDataLoader\Api\Response\ResponseErrorFormatter;
+use Aa\AkeneoDataLoader\Api\Response\ResponseError;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ResponseErrorFormatterSpec extends ObjectBehavior
+class ResponseErrorSpec extends ObjectBehavior
 {
-    function it_formats_response_error()
+    function it_transforms_input_to_string()
     {
         $response = [
 
@@ -36,9 +36,7 @@ Errors:
     - d: efg
 EOL;
 
-
-        $this
-            ->format($response)
-            ->shouldReturn($expectedFormat);
+        $this->beConstructedThrough('createFromResponse', [$response]);
+        $this->__toString()->shouldReturn($expectedFormat);
     }
 }
