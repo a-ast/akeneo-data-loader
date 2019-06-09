@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  php-cli:
+    image: 'thecodingmachine/php:7.2-v1-cli'
+    volumes:
+      - './:/usr/src/app:delegated'
+    environment:
+      PHP_EXTENSION_XDEBUG: 1
+      PHP_INI_XDEBUG__IDEKEY: XDEBUG_IDE_KEY
+      PHP_INI_XDEBUG__REMOTE_AUTOSTART: 1
+      PHP_IDE_CONFIG: 'serverName=php-cli'
