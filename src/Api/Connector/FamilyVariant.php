@@ -2,10 +2,11 @@
 
 namespace Aa\AkeneoDataLoader\Api\Connector;
 
+use Aa\AkeneoDataLoader\Api\LoadingResult\Factory;
 use Aa\AkeneoDataLoader\Connector\BatchUploadable;
 use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
-use Aa\AkeneoDataLoader\Api\Response\ResponseValidator;
 use Akeneo\Pim\ApiClient\Api\FamilyVariantApiInterface;
+use Traversable;
 
 class FamilyVariant implements ConnectorInterface, BatchUploadable
 {
@@ -19,7 +20,7 @@ class FamilyVariant implements ConnectorInterface, BatchUploadable
         $this->api = $api;
     }
 
-    public function upload(array $data)
+    public function upload(array $data): Traversable
     {
         $family = $data[0]['family'];
 
@@ -29,7 +30,7 @@ class FamilyVariant implements ConnectorInterface, BatchUploadable
 
         $responses = $this->api->upsertList($family, $data);
 
-        ResponseValidator::validate($responses);
+        return Factory::createFromResponses($responses);
     }
 
     public function getBatchGroup(): string

@@ -14,12 +14,12 @@ class FamilyVariantSpec extends ObjectBehavior
         $this->beConstructedWith($api);
     }
 
-    function it_is_upsertable()
+    function it_is_uploadable()
     {
         $this->shouldHaveType(BatchUploadable::class);
     }
 
-    function it_upserts(FamilyVariantApiInterface $api)
+    function it_uploads(FamilyVariantApiInterface $api)
     {
         $data = ['family' => 'shoes', 'code' => 'shoes_size', 'a' => 2];
 

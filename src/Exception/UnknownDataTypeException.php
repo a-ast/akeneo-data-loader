@@ -2,9 +2,7 @@
 
 namespace Aa\AkeneoDataLoader\Exception;
 
-use Exception;
-
-class UnknownDataTypeException extends Exception
+class UnknownDataTypeException extends LoaderException
 {
 
 }

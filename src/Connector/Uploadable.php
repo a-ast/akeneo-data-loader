@@ -2,10 +2,9 @@
 
 namespace Aa\AkeneoDataLoader\Connector;
 
+use Aa\AkeneoDataLoader\Report\LoadingResult\LoadingResultInterface;
+
 interface Uploadable
 {
-    /**
-     * @throws \Aa\AkeneoDataLoader\Exception\ConnectorException
-     */
-    public function upload(array $data);
+    public function upload(array $data): LoadingResultInterface;
 }

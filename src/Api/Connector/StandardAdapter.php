@@ -2,10 +2,11 @@
 
 namespace Aa\AkeneoDataLoader\Api\Connector;
 
+use Aa\AkeneoDataLoader\Api\LoadingResult\Factory;
 use Aa\AkeneoDataLoader\Connector\BatchUploadable;
 use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
-use Aa\AkeneoDataLoader\Api\Response\ResponseValidator;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
+use Traversable;
 
 class StandardAdapter implements ConnectorInterface, BatchUploadable
 {
@@ -19,11 +20,11 @@ class StandardAdapter implements ConnectorInterface, BatchUploadable
         $this->api = $api;
     }
 
-    public function upload(array $data)
+    public function upload(array $data): Traversable
     {
         $responses = $this->api->upsertList($data);
 
-        ResponseValidator::validate($responses);
+        return Factory::createFromResponses($responses);
     }
 
     public function getBatchGroup(): string

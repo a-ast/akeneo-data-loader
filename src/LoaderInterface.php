@@ -5,7 +5,7 @@ namespace Aa\AkeneoDataLoader;
 interface LoaderInterface
 {
     /**
-     * @throws \Aa\AkeneoDataLoader\Exception\LoaderException
+     * @throws \Aa\AkeneoDataLoader\Exception\LoaderFailureException
      */
-    public function load(string $alias, iterable $dataProvider);
+    public function load(string $dataType, iterable $dataProvider);
 }

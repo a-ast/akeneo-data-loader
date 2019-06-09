@@ -2,12 +2,14 @@
 
 namespace Aa\AkeneoDataLoader\Connector;
 
+use Traversable;
+
 interface BatchUploadable
 {
     /**
-     * @throws \Aa\AkeneoDataLoader\Exception\ConnectorException
+     * @return Traversable|\Aa\AkeneoDataLoader\Report\LoadingResult\LoadingResultInterface[]
      */
-    public function upload(array $data);
+    public function upload(array $data): Traversable;
 
     public function getBatchGroup(): string;
 }

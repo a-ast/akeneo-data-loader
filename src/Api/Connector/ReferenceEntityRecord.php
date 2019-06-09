@@ -2,10 +2,11 @@
 
 namespace Aa\AkeneoDataLoader\Api\Connector;
 
+use Aa\AkeneoDataLoader\Api\LoadingResult\Factory;
 use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
 use Aa\AkeneoDataLoader\Connector\BatchUploadable;
-use Aa\AkeneoDataLoader\Api\Response\ResponseValidator;
 use Akeneo\PimEnterprise\ApiClient\Api\ReferenceEntityRecordApiInterface;
+use Traversable;
 
 class ReferenceEntityRecord implements ConnectorInterface, BatchUploadable
 {
@@ -19,7 +20,7 @@ class ReferenceEntityRecord implements ConnectorInterface, BatchUploadable
         $this->api = $api;
     }
 
-    public function upload(array $data)
+    public function upload(array $data): Traversable
     {
         $referenceEntity = $data[0]['reference_entity'];
 
@@ -29,7 +30,7 @@ class ReferenceEntityRecord implements ConnectorInterface, BatchUploadable
 
         $responses = $this->api->upsertList($referenceEntity, $data);
 
-        ResponseValidator::validate($responses);
+        return Factory::createFromResponses($responses);
     }
 
     public function getBatchGroup(): string

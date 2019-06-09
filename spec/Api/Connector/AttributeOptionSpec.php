@@ -3,7 +3,6 @@
 namespace spec\Aa\AkeneoDataLoader\Api\Connector;
 
 use Aa\AkeneoDataLoader\Connector\BatchUploadable;
-use Aa\AkeneoDataLoader\Connector\Uploadable;
 use Akeneo\Pim\ApiClient\Api\AttributeOptionApiInterface;
 use PhpSpec\ObjectBehavior;
 
@@ -14,12 +13,12 @@ class AttributeOptionSpec extends ObjectBehavior
         $this->beConstructedWith($api);
     }
 
-    function it_is_upsertable()
+    function it_is_uploadable()
     {
         $this->shouldHaveType(BatchUploadable::class);
     }
 
-    function it_upserts(AttributeOptionApiInterface $api)
+    function it_uploads(AttributeOptionApiInterface $api)
     {
         $data = ['attribute' => 'size', 'code' => 'XL', 'a' => 1];
 

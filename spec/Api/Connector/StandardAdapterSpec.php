@@ -13,12 +13,12 @@ class StandardAdapterSpec extends ObjectBehavior
         $this->beConstructedWith($api);
     }
 
-    function it_is_upsertable()
+    function it_is_uploadable()
     {
         $this->shouldHaveType(BatchUploadable::class);
     }
 
-    function it_upserts(UpsertableResourceListInterface $api)
+    function it_uploads(UpsertableResourceListInterface $api)
     {
         $api
             ->upsertList([['code' => 1, 'a' => 2]])
