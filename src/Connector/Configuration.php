@@ -7,31 +7,31 @@ class Configuration
     /**
      * @var string
      */
-    private $uploadDir;
+    private $assetBaseDir;
 
     /**
      * @var int
      */
-    private $upsertBatchSize;
+    private $batchSize;
 
-    public function __construct(string $uploadDir, int $upsertBatchSize)
+    public function __construct(string $assetBaseDir, int $batchSize)
     {
-        $this->uploadDir = $uploadDir;
-        $this->upsertBatchSize = $upsertBatchSize;
+        $this->assetBaseDir = $assetBaseDir;
+        $this->batchSize = $batchSize;
     }
 
-    public static function create(string $uploadDir, int $upsertBatchSize = 100)
+    public static function create(string $assetBaseDir, int $batchSize = 100)
     {
-        return new static($uploadDir, $upsertBatchSize);
+        return new static($assetBaseDir, $batchSize);
     }
 
-    public function getUploadDir(): string
+    public function getAssetBaseDir(): string
     {
-        return $this->uploadDir;
+        return $this->assetBaseDir;
     }
 
     public function getBatchSize(): int
     {
-        return $this->upsertBatchSize;
+        return $this->batchSize;
     }
 }

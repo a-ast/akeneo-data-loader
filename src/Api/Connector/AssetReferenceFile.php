@@ -18,12 +18,12 @@ class AssetReferenceFile implements ConnectorInterface, Uploadable
     /**
      * @var string
      */
-    private $uploadDir;
+    private $baseDir;
 
-    public function __construct(AssetReferenceFileApiInterface $api, string $uploadDir)
+    public function __construct(AssetReferenceFileApiInterface $api, string $baseDir)
     {
         $this->api = $api;
-        $this->uploadDir = $uploadDir;
+        $this->baseDir = $baseDir;
     }
 
     public function upload(array $data): LoadingResultInterface
@@ -36,7 +36,7 @@ class AssetReferenceFile implements ConnectorInterface, Uploadable
     private function uploadData(array $data): int
     {
         // @todo: add trailing slash to mediaFilePath if missing
-        $path = $this->uploadDir.$data['path'];
+        $path = $this->baseDir.$data['path'];
         $assetCode = $data['asset'];
 
         if (isset($data['locale'])) {

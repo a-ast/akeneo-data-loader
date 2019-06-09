@@ -10,7 +10,7 @@ class ConfigurationSpec extends ObjectBehavior
     {
         $this->beConstructedThrough('create', ['uploadDir', 10]);
 
-        $this->getUploadDir()->shouldReturn('uploadDir');
+        $this->getAssetBaseDir()->shouldReturn('uploadDir');
         $this->getBatchSize()->shouldReturn(10);
     }
 }

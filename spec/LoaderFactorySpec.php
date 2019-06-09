@@ -11,7 +11,7 @@ class LoaderFactorySpec extends ObjectBehavior
 {
     function let(Configuration $configuration)
     {
-        $configuration->getUploadDir()->willReturn('/upload');
+        $configuration->getAssetBaseDir()->willReturn('/upload');
 
         $this->beConstructedWith($configuration);
     }
