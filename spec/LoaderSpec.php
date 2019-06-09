@@ -6,6 +6,8 @@ use Aa\AkeneoDataLoader\Connector\Configuration;
 use Aa\AkeneoDataLoader\Connector\RegistryInterface;
 use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
 use Aa\AkeneoDataLoader\Connector\BatchUploadable;
+use Aa\AkeneoDataLoader\Report\LoadingResult\Creation;
+use ArrayObject;
 use PhpSpec\ObjectBehavior;
 
 class LoaderSpec extends ObjectBehavior
@@ -26,7 +28,10 @@ class LoaderSpec extends ObjectBehavior
         $api->implement(BatchUploadable::class);
         $api->getBatchGroup()->willReturn('');
 
-        $api->upload($data)->shouldBeCalled();
+        $api
+            ->upload($data)
+            ->willReturn(new ArrayObject(new Creation('1')))
+            ->shouldBeCalled();
 
         $this->load('product', $data);
     }

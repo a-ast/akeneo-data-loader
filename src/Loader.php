@@ -32,8 +32,7 @@ class Loader implements LoaderInterface
     }
 
     /**
-     * @throws \Aa\AkeneoDataLoader\Exception\LoaderFailureException
-     * @throws \Aa\AkeneoDataLoader\Exception\UnknownDataTypeException
+     * @throws \Aa\AkeneoDataLoader\Exception\LoaderException
      */
     public function load(string $dataType, iterable $dataProvider)
     {
@@ -68,7 +67,11 @@ class Loader implements LoaderInterface
     private function uploadBatchesAndValidate(BatchUploadable $connector, iterable $dataProvider)
     {
         foreach ($dataProvider as $batch) {
-            $connector->upload($batch);
+            $results = $connector->upload($batch);
+
+            foreach ($results as $result) {
+                $this->processResult($result);
+            }
         }
     }
 
