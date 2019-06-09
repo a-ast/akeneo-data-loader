@@ -71,7 +71,7 @@ class Failure implements LoadingResultInterface
     public function __toString(): string
     {
         $output = [
-            sprintf('Data code / identifier %s', $this->getDataCode()),
+            sprintf('Data code / identifier: %s', $this->getDataCode()),
             sprintf('Error code: %d', $this->getErrorCode())
         ];
 
