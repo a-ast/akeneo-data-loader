@@ -41,6 +41,8 @@ class LoaderFactory
 
     protected function createRegistry(AkeneoPimClientInterface $client): RegistryInterface
     {
+        $baseDir = $this->configuration->getAssetBaseDir();
+
         $registry = new Registry();
 
         $registry
@@ -51,12 +53,11 @@ class LoaderFactory
             ->register('attribute-option', new AttributeOption($client->getAttributeOptionApi()))
             ->register('family',           new StandardAdapter($client->getFamilyApi()))
             ->register('family-variant',   new FamilyVariant($client->getFamilyVariantApi()))
-            ->register('product',          new Product($client->getProductApi(), $client->getProductMediaFileApi()))
-            ->register('product-model',    new Product($client->getProductModelApi(), $client->getProductMediaFileApi()));
+            ->register('product',          new Product($client->getProductApi(), $client->getProductMediaFileApi(), $baseDir))
+            ->register('product-model',    new Product($client->getProductModelApi(), $client->getProductMediaFileApi(), $baseDir));
 
         if ($client instanceof AkeneoPimEnterpriseClientInterface) {
 
-            $baseDir = $this->configuration->getAssetBaseDir();
 
             $registry
                 ->register('asset',    new StandardAdapter($client->getAssetApi()))

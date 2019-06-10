@@ -58,7 +58,6 @@ class MediaData
         return [
             'type' => $this->isProduct ? 'product' : 'product_model',
             $dataCodeProperty => $this->dataCode,
-            // @todo: code for model
             'attribute' => $this->attribute,
             'scope' => $this->scope,
             'locale' => $this->locale,

@@ -25,10 +25,16 @@ class Product implements ConnectorInterface, BatchUploadable
      */
     private $mediaFileApi;
 
-    public function __construct(UpsertableResourceListInterface $api, MediaFileApiInterface $mediaFileApi)
+    /**
+     * @var string
+     */
+    private $baseDir;
+
+    public function __construct(UpsertableResourceListInterface $api, MediaFileApiInterface $mediaFileApi, string $baseDir)
     {
         $this->api = $api;
         $this->mediaFileApi = $mediaFileApi;
+        $this->baseDir = $baseDir;
     }
 
     public function upload(array $data): Traversable
@@ -60,7 +66,7 @@ class Product implements ConnectorInterface, BatchUploadable
 
             try {
                 $this->mediaFileApi->create(
-                    $mediaData->getPath(),
+                    $this->baseDir.$mediaData->getPath(),
                     $mediaData->toArray()
                 );
 
