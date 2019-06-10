@@ -20,12 +20,12 @@ class MediaData
     private $attribute;
 
     /**
-     * @var string
+     * @var ?string
      */
     private $scope;
 
     /**
-     * @var string
+     * @var ?string
      */
     private $locale;
 
@@ -35,7 +35,7 @@ class MediaData
     private $path;
 
     private function __construct(string $path, bool $isProduct, string $dataCode,
-        string $attribute, string $scope, string $locale)
+        string $attribute, ?string $scope, ?string $locale)
     {
         $this->path = $path;
         $this->isProduct = $isProduct;
@@ -46,7 +46,7 @@ class MediaData
     }
 
     public static function create(string $path, bool $isProduct, string $dataCode,
-        string $attribute, string $scope, string $locale)
+        string $attribute, ?string $scope, ?string $locale)
     {
         return new static($path, $isProduct, $dataCode, $attribute, $scope, $locale);
     }
