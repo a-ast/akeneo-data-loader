@@ -36,31 +36,7 @@ class Product implements ConnectorInterface, BatchUploadable
 
 //        $fileInfos = [];
 //
-//        foreach ($data as $product) {
-//            foreach ($product['values'] ?? [] as $attributeCode => $productValues) {
-//                foreach ($productValues as $productValue) {
-//
-//                    // @todo: needed?
-//                    if (false === isset($productValue['data'])) {
-//                        continue;
-//                    }
-//
-//                    // @todo: check if stars with "file" of array { 'filePath' => ... } ?
-//
-//                    $path = $productValue['data'];
-//
-//                    $fileInfos[$path] = [
-//                        'type' => 'product',
-//                        // @todo model
-//                        'identifier' => $product['identifier'],
-//                        // @todo: code for model
-//                        'attribute' => $attributeCode,
-//                        'scope' => $productValue['scope'],
-//                        'locale' => $productValue['locale'],
-//                    ];
-//                }
-//            }
-//        }
+
 //
 //        foreach ($fileInfos as $path => $fileInfo) {
 //
