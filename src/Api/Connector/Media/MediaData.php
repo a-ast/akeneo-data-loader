@@ -69,4 +69,9 @@ class MediaData
     {
         return $this->path;
     }
+
+    public function getDataCode(): string
+    {
+        return $this->dataCode;
+    }
 }

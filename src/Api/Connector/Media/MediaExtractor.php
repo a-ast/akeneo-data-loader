@@ -4,11 +4,11 @@ namespace Aa\AkeneoDataLoader\Api\Connector\Media;
 
 class MediaExtractor
 {
+    const MEDIA_FILE_PREFIX = '@file:';
+
     /**
      * @return array|\Aa\AkeneoDataLoader\Api\Connector\Media\MediaData[]
      */
-    const MEDIA_FILE_PREFIX = '@file:';
-
     public function extract(array $data): array
     {
         $media = [];
