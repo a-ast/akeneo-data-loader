@@ -9,7 +9,11 @@ Akeneo Data Loader helps you to load data to your Akeneo PIM via its REST API.
 
 * Load YAML fixtures for testing, local development or performance benchmarking.
 * Import from external systems (legacy PIM or regular data providers). 
-* Bulk media file import.
+
+## Features
+
+* Support of bulk data upload (upsert mode).
+* Simplified import of media files.
 
 ### Examples
 
