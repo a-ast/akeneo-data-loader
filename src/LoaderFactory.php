@@ -60,11 +60,12 @@ class LoaderFactory
         if ($client instanceof AkeneoPimEnterpriseClientInterface) {
 
             $registry
-                ->register('asset',    new StandardAdapter($client->getAssetApi()))
-                ->register('asset-reference-file', new AssetReferenceFile($client->getAssetReferenceFileApi(), $baseDir))
-                ->register('asset-variation-file', new AssetVariationFile($client->getAssetVariationFileApi(), $baseDir))
-                ->register('reference-entity',  new ReferenceEntity($client->getReferenceEntityApi()))
-                ->register('reference-entity-record',  new ReferenceEntityRecord($client->getReferenceEntityRecordApi()));
+                ->register('asset',             new StandardAdapter($client->getAssetApi()))
+                ->register('asset-category',    new StandardAdapter($client->getAssetCategoryApi()))
+                ->register('asset-reference-file',    new AssetReferenceFile($client->getAssetReferenceFileApi(), $baseDir))
+                ->register('asset-variation-file',    new AssetVariationFile($client->getAssetVariationFileApi(), $baseDir))
+                ->register('reference-entity',        new ReferenceEntity($client->getReferenceEntityApi()))
+                ->register('reference-entity-record', new ReferenceEntityRecord($client->getReferenceEntityRecordApi()));
         }
 
         return $registry;
