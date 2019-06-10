@@ -51,13 +51,13 @@ class LoaderFactory
             ->register('attribute',        new StandardAdapter($client->getAttributeApi()))
             ->register('attribute-group',  new StandardAdapter($client->getAttributeGroupApi()))
             ->register('attribute-option', new AttributeOption($client->getAttributeOptionApi()))
+            ->register('association-type', new StandardAdapter($client->getAssociationTypeApi() ))
             ->register('family',           new StandardAdapter($client->getFamilyApi()))
             ->register('family-variant',   new FamilyVariant($client->getFamilyVariantApi()))
             ->register('product',          new Product($client->getProductApi(), $client->getProductMediaFileApi(), $baseDir))
             ->register('product-model',    new Product($client->getProductModelApi(), $client->getProductMediaFileApi(), $baseDir));
 
         if ($client instanceof AkeneoPimEnterpriseClientInterface) {
-
 
             $registry
                 ->register('asset',    new StandardAdapter($client->getAssetApi()))
