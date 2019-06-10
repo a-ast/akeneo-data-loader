@@ -4,7 +4,7 @@ namespace spec\Aa\AkeneoDataLoader\Batch;
 
 use PhpSpec\ObjectBehavior;
 
-class ChannelingBatchGeneratorSpec extends ObjectBehavior
+class GroupingBatchGeneratorSpec extends ObjectBehavior
 {
     function let()
     {

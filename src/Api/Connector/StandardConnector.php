@@ -8,7 +8,7 @@ use Aa\AkeneoDataLoader\Connector\ConnectorInterface;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 use Traversable;
 
-class StandardAdapter implements ConnectorInterface, BatchUploadable
+class StandardConnector implements ConnectorInterface, BatchUploadable
 {
     /**
      * @var UpsertableResourceListInterface

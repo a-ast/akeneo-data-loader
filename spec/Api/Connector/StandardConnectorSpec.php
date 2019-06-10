@@ -6,7 +6,7 @@ use Aa\AkeneoDataLoader\Connector\BatchUploadable;
 use Akeneo\Pim\ApiClient\Api\Operation\UpsertableResourceListInterface;
 use PhpSpec\ObjectBehavior;
 
-class StandardAdapterSpec extends ObjectBehavior
+class StandardConnectorSpec extends ObjectBehavior
 {
     function let(UpsertableResourceListInterface $api)
     {

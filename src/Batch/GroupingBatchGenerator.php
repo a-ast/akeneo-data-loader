@@ -4,7 +4,7 @@ namespace Aa\AkeneoDataLoader\Batch;
 
 use Traversable;
 
-class ChannelingBatchGenerator
+class GroupingBatchGenerator
 {
     /**
      * @var int
@@ -14,12 +14,12 @@ class ChannelingBatchGenerator
     /**
      * @var string
      */
-    private $channel;
+    private $group;
 
-    public function __construct(int $size, string $channel)
+    public function __construct(int $size, string $group)
     {
         $this->size = $size;
-        $this->channel = $channel;
+        $this->group = $group;
     }
 
     public function getBatches(iterable $iterator): Traversable
@@ -28,7 +28,7 @@ class ChannelingBatchGenerator
 
         foreach ($iterator as $item) {
 
-            $code = $item[$this->channel];
+            $code = $item[$this->group];
 
             $batches[$code][] = $item;
 

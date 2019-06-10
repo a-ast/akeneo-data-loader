@@ -11,7 +11,7 @@ use Aa\AkeneoDataLoader\Api\Connector\AttributeOption;
 use Aa\AkeneoDataLoader\Api\Connector\FamilyVariant;
 use Aa\AkeneoDataLoader\Api\Connector\ReferenceEntity;
 use Aa\AkeneoDataLoader\Api\Connector\ReferenceEntityRecord;
-use Aa\AkeneoDataLoader\Api\Connector\StandardAdapter;
+use Aa\AkeneoDataLoader\Api\Connector\StandardConnector;
 use Aa\AkeneoDataLoader\Connector\Configuration;
 use Aa\AkeneoDataLoader\Connector\Registry;
 use Aa\AkeneoDataLoader\Connector\RegistryInterface;
@@ -47,13 +47,13 @@ class LoaderFactory
         $registry = new Registry();
 
         $registry
-            ->register('channel',    new StandardAdapter($client->getChannelApi()))
-            ->register('category',   new StandardAdapter($client->getCategoryApi()))
-            ->register('attribute',        new StandardAdapter($client->getAttributeApi()))
-            ->register('attribute-group',  new StandardAdapter($client->getAttributeGroupApi()))
+            ->register('channel',    new StandardConnector($client->getChannelApi()))
+            ->register('category',   new StandardConnector($client->getCategoryApi()))
+            ->register('attribute',        new StandardConnector($client->getAttributeApi()))
+            ->register('attribute-group',  new StandardConnector($client->getAttributeGroupApi()))
             ->register('attribute-option', new AttributeOption($client->getAttributeOptionApi()))
-            ->register('association-type', new StandardAdapter($client->getAssociationTypeApi() ))
-            ->register('family',           new StandardAdapter($client->getFamilyApi()))
+            ->register('association-type', new StandardConnector($client->getAssociationTypeApi() ))
+            ->register('family',           new StandardConnector($client->getFamilyApi()))
             ->register('family-variant',   new FamilyVariant($client->getFamilyVariantApi()))
             ->register('product',          new Product($client->getProductApi(), $client->getProductMediaFileApi(), $baseDir))
             ->register('product-model',    new Product($client->getProductModelApi(), $client->getProductMediaFileApi(), $baseDir));
@@ -61,8 +61,8 @@ class LoaderFactory
         if ($client instanceof AkeneoPimEnterpriseClientInterface) {
 
             $registry
-                ->register('asset',             new StandardAdapter($client->getAssetApi()))
-                ->register('asset-category',    new StandardAdapter($client->getAssetCategoryApi()))
+                ->register('asset',             new StandardConnector($client->getAssetApi()))
+                ->register('asset-category',    new StandardConnector($client->getAssetCategoryApi()))
                 ->register('asset-tag',               new AssetTag($client->getAssetTagApi()))
                 ->register('asset-reference-file',    new AssetReferenceFile($client->getAssetReferenceFileApi(), $baseDir))
                 ->register('asset-variation-file',    new AssetVariationFile($client->getAssetVariationFileApi(), $baseDir))

@@ -7,7 +7,7 @@ use Aa\AkeneoDataLoader\Connector\RegistryInterface;
 use Aa\AkeneoDataLoader\Connector\BatchUploadable;
 use Aa\AkeneoDataLoader\Connector\Uploadable;
 use Aa\AkeneoDataLoader\Batch\BatchGenerator;
-use Aa\AkeneoDataLoader\Batch\ChannelingBatchGenerator;
+use Aa\AkeneoDataLoader\Batch\GroupingBatchGenerator;
 use Aa\AkeneoDataLoader\Exception\LoaderFailureException;
 use Aa\AkeneoDataLoader\Report\LoadingResult\Failure;
 use Aa\AkeneoDataLoader\Report\LoadingResult\LoadingResultInterface;
@@ -90,7 +90,7 @@ class Loader implements LoaderInterface
             return new BatchGenerator($batchSize);
         }
 
-        return new ChannelingBatchGenerator($batchSize, $group);
+        return new GroupingBatchGenerator($batchSize, $group);
     }
 
     /**
