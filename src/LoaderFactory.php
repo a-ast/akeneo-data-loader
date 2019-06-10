@@ -2,6 +2,7 @@
 
 namespace Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Api\Connector\AssetTag;
 use Aa\AkeneoDataLoader\Api\Connector\Product;
 use Aa\AkeneoDataLoader\Api\Credentials;
 use Aa\AkeneoDataLoader\Api\Connector\AssetReferenceFile;
@@ -62,6 +63,7 @@ class LoaderFactory
             $registry
                 ->register('asset',             new StandardAdapter($client->getAssetApi()))
                 ->register('asset-category',    new StandardAdapter($client->getAssetCategoryApi()))
+                ->register('asset-tag',               new AssetTag($client->getAssetTagApi()))
                 ->register('asset-reference-file',    new AssetReferenceFile($client->getAssetReferenceFileApi(), $baseDir))
                 ->register('asset-variation-file',    new AssetVariationFile($client->getAssetVariationFileApi(), $baseDir))
                 ->register('reference-entity',        new ReferenceEntity($client->getReferenceEntityApi()))
