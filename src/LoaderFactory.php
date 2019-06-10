@@ -2,6 +2,7 @@
 
 namespace Aa\AkeneoDataLoader;
 
+use Aa\AkeneoDataLoader\Api\Connector\Product;
 use Aa\AkeneoDataLoader\Api\Credentials;
 use Aa\AkeneoDataLoader\Api\Connector\AssetReferenceFile;
 use Aa\AkeneoDataLoader\Api\Connector\AssetVariationFile;
@@ -50,8 +51,8 @@ class LoaderFactory
             ->register('attribute-option', new AttributeOption($client->getAttributeOptionApi()))
             ->register('family',           new StandardAdapter($client->getFamilyApi()))
             ->register('family-variant',   new FamilyVariant($client->getFamilyVariantApi()))
-            ->register('product',          new StandardAdapter($client->getProductApi()))
-            ->register('product-model',    new StandardAdapter($client->getProductModelApi()));
+            ->register('product',          new Product($client->getProductApi(), $client->getProductMediaFileApi()))
+            ->register('product-model',    new Product($client->getProductModelApi(), $client->getProductMediaFileApi()));
 
         if ($client instanceof AkeneoPimEnterpriseClientInterface) {
 
