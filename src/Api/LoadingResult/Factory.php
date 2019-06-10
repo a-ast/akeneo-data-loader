@@ -10,6 +10,11 @@ use Traversable;
 
 class Factory
 {
+    /**
+     * @param iterable $responses
+     *
+     * @return \Traversable|\Aa\AkeneoDataLoader\Report\LoadingResult\LoadingResultInterface[]
+     */
     public static function createFromResponses(iterable $responses): Traversable
     {
         foreach ($responses as $response) {
