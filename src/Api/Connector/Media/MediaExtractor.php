@@ -44,7 +44,8 @@ class MediaExtractor
             foreach ($product['values'] ?? [] as $attributeCode => $productValues) {
                 foreach ($productValues as $index => $productValue) {
 
-                    if (false === isset($productValue['data'])) {
+                    if (false === isset($productValue['data']) ||
+                        true === is_array($productValue['data'])) {
                         continue;
                     }
 
