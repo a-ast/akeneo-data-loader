@@ -5,6 +5,7 @@ namespace Aa\AkeneoDataLoader;
 use Aa\AkeneoDataLoader\Api\Connector\AssetTag;
 use Aa\AkeneoDataLoader\Api\Connector\Product;
 use Aa\AkeneoDataLoader\Api\Connector\ReferenceEntityAtrribute;
+use Aa\AkeneoDataLoader\Api\Connector\ReferenceEntityAtrributeOption;
 use Aa\AkeneoDataLoader\Api\Credentials;
 use Aa\AkeneoDataLoader\Api\Connector\AssetReferenceFile;
 use Aa\AkeneoDataLoader\Api\Connector\AssetVariationFile;
@@ -68,9 +69,10 @@ class LoaderFactory
                 ->register('asset-reference-file',    new AssetReferenceFile($client->getAssetReferenceFileApi(), $baseDir))
                 ->register('asset-variation-file',    new AssetVariationFile($client->getAssetVariationFileApi(), $baseDir))
 
-                ->register('reference-entity',             new ReferenceEntity($client->getReferenceEntityApi()))
-                ->register('reference-entity-attribute',   new ReferenceEntityAtrribute($client->getReferenceEntityAttributeApi()))
-                ->register('reference-entity-record',      new ReferenceEntityRecord($client->getReferenceEntityRecordApi()));
+                ->register('reference-entity',                  new ReferenceEntity($client->getReferenceEntityApi()))
+                ->register('reference-entity-attribute',        new ReferenceEntityAtrribute($client->getReferenceEntityAttributeApi()))
+                ->register('reference-entity-attribute-option', new ReferenceEntityAtrributeOption($client->getReferenceEntityAttributeOptionApi()))
+                ->register('reference-entity-record',           new ReferenceEntityRecord($client->getReferenceEntityRecordApi()));
         }
 
         return $registry;
