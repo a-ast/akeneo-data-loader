@@ -18,6 +18,7 @@ class MediaExtractor
                 foreach ($productValues as $productValue) {
 
                     if (false === isset($productValue['data']) ||
+                        true === is_array($productValue['data']) ||
                         false === $this->isFile($productValue['data'])) {
                         continue;
                     }
