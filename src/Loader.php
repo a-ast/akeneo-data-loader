@@ -54,10 +54,12 @@ class Loader implements LoaderInterface
      */
     private function uploadAndValidate(Uploadable $connector, iterable $dataProvider)
     {
+        $index = 0;
+
         foreach ($dataProvider as $item) {
             $result = $connector->upload($item);
 
-            $this->processResult($result);
+            $this->processResult($result, $index++);
         }
     }
 
@@ -66,12 +68,16 @@ class Loader implements LoaderInterface
      */
     private function uploadBatchesAndValidate(BatchUploadable $connector, iterable $dataProvider)
     {
+        $index = 0;
+
         foreach ($dataProvider as $batch) {
             $results = $connector->upload($batch);
 
             foreach ($results as $result) {
-                $this->processResult($result);
+                $this->processResult($result, $index);
             }
+
+            $index += $this->configuration->getBatchSize();
         }
     }
 
@@ -96,14 +102,14 @@ class Loader implements LoaderInterface
     /**
      * @throws \Aa\AkeneoDataLoader\Exception\LoaderFailureException
      */
-    private function processResult(LoadingResultInterface $result)
+    private function processResult(LoadingResultInterface $result, int $index)
     {
         if ($result instanceof Failure) {
 
-            // @todo: recalculte current index from batch or current index
-            throw new LoaderFailureException($result->getMessage(), $result);
+            $newIndex = $index + $result->getIndex();
+            $failure = $result->withIndex($newIndex);
 
+            throw new LoaderFailureException($result->getMessage(), $failure);
         }
-
     }
 }
