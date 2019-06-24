@@ -65,7 +65,7 @@ class LoaderSpec extends ObjectBehavior
             Assert::same('Error', $exception->getMessage());
             Assert::same(2,       $exception->getFailure()->getIndex());
             Assert::same('Error', $exception->getFailure()->getMessage());
-            Assert::same('3',     $exception->getFailure()->getDataCode());
+            Assert::same('3',     $exception->getFailure()->getDataIdentifier());
             Assert::same(123,     $exception->getFailure()->getErrorCode());
             Assert::same([],            $exception->getFailure()->getErrors());
         }

@@ -7,15 +7,15 @@ class Creation implements LoadingResultInterface
     /**
      * @var string
      */
-    private $dataCode;
+    private $dataIdentifier;
 
-    public function __construct(string $dataCode)
+    public function __construct(string $dataIdentifier)
     {
-        $this->dataCode = $dataCode;
+        $this->dataIdentifier = $dataIdentifier;
     }
 
-    public function getDataCode(): string
+    public function getDataIdentifier(): string
     {
-        return $this->dataCode;
+        return $this->dataIdentifier;
     }
 }

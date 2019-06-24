@@ -7,15 +7,15 @@ class Update implements LoadingResultInterface
     /**
      * @var string
      */
-    private $dataCode;
+    private $dataIdentifier;
 
     public function __construct(string $dataCode)
     {
-        $this->dataCode = $dataCode;
+        $this->dataIdentifier = $dataCode;
     }
 
-    public function getDataCode(): string
+    public function getDataIdentifier(): string
     {
-        return $this->dataCode;
+        return $this->dataIdentifier;
     }
 }

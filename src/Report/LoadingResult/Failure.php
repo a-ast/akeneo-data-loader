@@ -7,7 +7,7 @@ class Failure implements LoadingResultInterface
     /**
      * @var string
      */
-    private $dataCode;
+    private $dataIdentifier;
 
     /**
      * @var int
@@ -37,15 +37,15 @@ class Failure implements LoadingResultInterface
         array $errors)
     {
         $this->message = $message;
-        $this->dataCode = $dataCode;
+        $this->dataIdentifier = $dataCode;
         $this->errorCode = $errorCode;
         $this->index = $index;
         $this->errors = $errors;
     }
 
-    public function getDataCode(): string
+    public function getDataIdentifier(): string
     {
-        return $this->dataCode;
+        return $this->dataIdentifier;
     }
 
     public function getMessage(): string
@@ -71,7 +71,7 @@ class Failure implements LoadingResultInterface
     public function __toString(): string
     {
         $output = [
-            sprintf('Data code / identifier: %s', $this->getDataCode()),
+            sprintf('Data code / identifier: %s', $this->getDataIdentifier()),
             sprintf('Error code: %d', $this->getErrorCode())
         ];
 
@@ -88,7 +88,7 @@ class Failure implements LoadingResultInterface
     public function withIndex(int $newIndex): Failure
     {
         $newFailure = new Failure(
-            $this->getDataCode(),
+            $this->getDataIdentifier(),
             $this->getMessage(),
             $this->getErrorCode(),
             $newIndex,

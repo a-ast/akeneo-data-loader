@@ -14,7 +14,7 @@ class FailureSpec extends ObjectBehavior
 
     function it_returns_properties()
     {
-        $this->getDataCode()->shouldBe('product');
+        $this->getDataIdentifier()->shouldBe('product');
         $this->getMessage()->shouldBe('Error');
         $this->getErrorCode()->shouldBe(123);
         $this->getIndex()->shouldBe(88);
@@ -28,7 +28,7 @@ class FailureSpec extends ObjectBehavior
         $newFailure->shouldHaveType(Failure::class);
         $newFailure->getIndex()->shouldBe(86);
         
-        $newFailure->getDataCode()->shouldBe('product');
+        $newFailure->getDataIdentifier()->shouldBe('product');
         $newFailure->getMessage()->shouldBe('Error');
         $newFailure->getErrorCode()->shouldBe(123);
         $newFailure->getErrors()->shouldBe(['error1', 'error2']);
