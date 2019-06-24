@@ -84,4 +84,17 @@ class Failure implements LoadingResultInterface
 
         return implode(PHP_EOL, $output);
     }
+
+    public function withIndex(int $newIndex): Failure
+    {
+        $newFailure = new Failure(
+            $this->getDataCode(),
+            $this->getMessage(),
+            $this->getErrorCode(),
+            $newIndex,
+            $this->getErrors()
+        );
+
+        return $newFailure;
+    }
 }
