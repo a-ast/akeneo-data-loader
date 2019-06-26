@@ -42,7 +42,19 @@ class LoaderFactory
         return new Loader($registry, $this->configuration);
     }
 
-    protected function createRegistry(AkeneoPimClientInterface $client): RegistryInterface
+    public function createApiClient(Credentials $apiCredentials): AkeneoPimClientInterface
+    {
+        $clientBuilder = new AkeneoPimEnterpriseClientBuilder($apiCredentials->getBaseUri());
+
+        return $clientBuilder->buildAuthenticatedByPassword(
+            $apiCredentials->getClientId(),
+            $apiCredentials->getSecret(),
+            $apiCredentials->getUsername(),
+            $apiCredentials->getPassword()
+        );
+    }
+
+    private function createRegistry(AkeneoPimClientInterface $client): RegistryInterface
     {
         $baseDir = $this->configuration->getAssetBaseDir();
 
@@ -76,17 +88,5 @@ class LoaderFactory
         }
 
         return $registry;
-    }
-
-    private function createApiClient(Credentials $apiCredentials): AkeneoPimClientInterface
-    {
-        $clientBuilder = new AkeneoPimEnterpriseClientBuilder($apiCredentials->getBaseUri());
-
-        return $clientBuilder->buildAuthenticatedByPassword(
-            $apiCredentials->getClientId(),
-            $apiCredentials->getSecret(),
-            $apiCredentials->getUsername(),
-            $apiCredentials->getPassword()
-        );
     }
 }
