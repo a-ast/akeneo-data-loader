@@ -34,7 +34,7 @@
         fr_FR: Mobile
 
 ```
-See more in the [channel.yaml](doc/examples/channel.yaml)
+See more in the [channel.yaml](examples/channel.yaml)
 
 
 ### Category
@@ -56,7 +56,7 @@ See more in the [channel.yaml](doc/examples/channel.yaml)
         fr_FR: Bags
 
 ```
-See more in the [category.yaml](doc/examples/category.yaml)
+See more in the [category.yaml](examples/category.yaml)
 
 
 ### Attribute group
@@ -76,7 +76,7 @@ See more in the [category.yaml](doc/examples/category.yaml)
         de_DE: ERP
 
 ```
-See more in the [attribute-group.yaml](doc/examples/attribute-group.yaml)
+See more in the [attribute-group.yaml](examples/attribute-group.yaml)
 
 
 ### Attribute
@@ -108,7 +108,7 @@ See more in the [attribute-group.yaml](doc/examples/attribute-group.yaml)
         fr_FR: Collection
 
 ```
-See more in the [attribute.yaml](doc/examples/attribute.yaml)
+See more in the [attribute.yaml](examples/attribute.yaml)
 
 
 ### Attribute option
@@ -128,7 +128,7 @@ See more in the [attribute.yaml](doc/examples/attribute.yaml)
         fr_FR: 'Automne 2016'
 
 ```
-See more in the [attribute-option.yaml](doc/examples/attribute-option.yaml)
+See more in the [attribute-option.yaml](examples/attribute-option.yaml)
 
 
 ### Family
@@ -245,7 +245,7 @@ See more in the [attribute-option.yaml](doc/examples/attribute-option.yaml)
         de_DE: Shoes
 
 ```
-See more in the [family.yaml](doc/examples/family.yaml)
+See more in the [family.yaml](examples/family.yaml)
 
 
 ### Family variant
@@ -300,7 +300,7 @@ See more in the [family.yaml](doc/examples/family.yaml)
                 - variation_image
 
 ```
-See more in the [family-variant.yaml](doc/examples/family-variant.yaml)
+See more in the [family-variant.yaml](examples/family-variant.yaml)
 
 
 ### Product model
@@ -370,7 +370,7 @@ See more in the [family-variant.yaml](doc/examples/family-variant.yaml)
                 data: 'Brooks pink'
 
 ```
-See more in the [product-model.yaml](doc/examples/product-model.yaml)
+See more in the [product-model.yaml](examples/product-model.yaml)
 
 
 ### Product
@@ -423,5 +423,5 @@ See more in the [product-model.yaml](doc/examples/product-model.yaml)
                 data: { amount: '900.0000', unit: GRAM }
 
 ```
-See more in the [product.yaml](doc/examples/product.yaml)
+See more in the [product.yaml](examples/product.yaml)
 
