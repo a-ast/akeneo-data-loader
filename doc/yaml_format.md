@@ -1,5 +1,7 @@
+# Examples of YAML format
 
-### channel
+
+### Channel
 
 ```yaml
 -
@@ -32,9 +34,10 @@
         fr_FR: Mobile
 
 ```
+See more in the [channel.yaml](doc/examples/channel.yaml)
 
 
-### category
+### Category
 
 ```yaml
 -
@@ -53,9 +56,10 @@
         fr_FR: Bags
 
 ```
+See more in the [category.yaml](doc/examples/category.yaml)
 
 
-### attribute-group
+### Attribute group
 
 ```yaml
 -
@@ -72,9 +76,10 @@
         de_DE: ERP
 
 ```
+See more in the [attribute-group.yaml](doc/examples/attribute-group.yaml)
 
 
-### attribute
+### Attribute
 
 ```yaml
 -
@@ -103,9 +108,10 @@
         fr_FR: Collection
 
 ```
+See more in the [attribute.yaml](doc/examples/attribute.yaml)
 
 
-### attribute-option
+### Attribute option
 
 ```yaml
 -
@@ -122,9 +128,10 @@
         fr_FR: 'Automne 2016'
 
 ```
+See more in the [attribute-option.yaml](doc/examples/attribute-option.yaml)
 
 
-### family
+### Family
 
 ```yaml
 -
@@ -238,9 +245,10 @@
         de_DE: Shoes
 
 ```
+See more in the [family.yaml](doc/examples/family.yaml)
 
 
-### family-variant
+### Family variant
 
 ```yaml
 -
@@ -292,9 +300,10 @@
                 - variation_image
 
 ```
+See more in the [family-variant.yaml](doc/examples/family-variant.yaml)
 
 
-### product-model
+### Product model
 
 ```yaml
 -
@@ -361,9 +370,10 @@
                 data: 'Brooks pink'
 
 ```
+See more in the [product-model.yaml](doc/examples/product-model.yaml)
 
 
-### product
+### Product
 
 ```yaml
 -
@@ -413,4 +423,5 @@
                 data: { amount: '900.0000', unit: GRAM }
 
 ```
+See more in the [product.yaml](doc/examples/product.yaml)
 
