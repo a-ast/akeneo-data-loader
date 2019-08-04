@@ -7,7 +7,7 @@ Akeneo Data Loader helps you to load data to your Akeneo PIM via its REST API.
 
 ## Use cases
 
-* Load YAML fixtures for testing, local development or performance benchmarking.
+* Load YAML fixtures for testing, local development or for performance benchmarking.
 * Import product data from external systems (legacy PIM or regular data providers). 
 
 ## Features
@@ -63,3 +63,25 @@ $productData = Yaml::parse(file_get_contents('data/product.yaml'));
 
 $loader->load('product', $productData);
 ```
+* [Examples of YAML files](doc/yaml_format.md)
+
+
+## Supported data types
+
+* channel
+* category
+* attribute-group
+* attribute
+* attribute-option
+* family
+* family-variant
+* product-model
+* product
+
+**Enterprise Edition data types**
+
+* asset
+* asset-variation-file
+* asset-reference-file
+* reference-entity
+* reference-entity-record
