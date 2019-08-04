@@ -48,7 +48,7 @@ $loader->load('product', [
 ]);
 ```
 
-#### Load form a YAML file
+#### Load from a YAML file
 
 ```php
 use Aa\AkeneoDataLoader\Api;
