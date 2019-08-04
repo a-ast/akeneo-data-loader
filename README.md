@@ -12,7 +12,7 @@ Akeneo Data Loader helps you to load data to your Akeneo PIM via its REST API.
 
 ## Features
 
-* Support of bulk data upload (upsert mode).
+* Support for bulk data upload (upsert mode).
 * Simplified import of media files.
 
 ### Examples
@@ -78,9 +78,9 @@ As you can see, to load data you need to know:
 
 I hope you know your Akeneo host, so use it by creating a `Credentials` object.
 
-Besides this, you need to know name and password of the user that you going to use for connecting via API.
+Besides this, you need to know the name and password of the user that you going to use for connecting via API.
 
-Last, but not the least, you need a client ID and a secret of an API connection.  
+Last, but not the least, you need the client ID and secret of an API connection.  
 You can create a connection in you Akeneo in the `System > API connection` section or 
 use the console command to generate it:
 
@@ -90,7 +90,7 @@ bin/console pim:oauth-server:create-client Import
 
 ### 2. Data type
 
-Data loader supports following data types:
+Data loader supports the following data types:
 
 * channel
 * category
@@ -112,6 +112,6 @@ and also these Enterprise Edition data types:
 
 ### 3. Data format 
 
-Data format is a [format of Akeneo REST API](https://api.akeneo.com/documentation/resources.html).
+The data format is a [format of Akeneo REST API](https://api.akeneo.com/documentation/resources.html).
 
 Check also [Examples of YAML files](doc/yaml_format.md) that represent the data format. 
