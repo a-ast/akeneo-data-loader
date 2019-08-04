@@ -1,0 +1,65 @@
+-
+    code: shoes_size
+    family: shoes
+    labels:
+        de_DE: 'Schuhe nach Größe'
+        en_US: 'Shoes by size'
+        fr_FR: 'Chaussures par taille'
+    variant_attribute_sets:
+        -
+            level: 1
+            axes: [eu_shoes_size]
+            attributes:
+                - ean
+                - eu_shoes_size
+                - size
+                - sku
+                - variation_image
+                - variation_name
+                - weight
+
+-
+    code: shoes_size_color
+    family: shoes
+    labels:
+        de_DE: 'Schuhe nach Größe und Farbe'
+        en_US: 'Shoes by size and color'
+        fr_FR: 'Chaussures par taille et couleur'
+    variant_attribute_sets:
+        -
+            level: 1
+            axes: [size]
+            attributes:
+                - eu_shoes_size
+                - size
+                - variation_name
+                - weight
+
+        -
+            level: 2
+            axes: [color]
+            attributes:
+                - composition
+                - color
+                - ean
+                - sku
+                - variation_image
+-
+    code: accessories_size
+    family: accessories
+    labels:
+        de_DE: 'Accessories by size'
+        en_US: 'Accessories by size'
+        fr_FR: 'Accessoires par taille'
+    variant_attribute_sets:
+        -
+             level: 1
+             axes: [size]
+             attributes:
+                 - ean
+                 - sku
+                 - size
+                 - variation_image
+                 - variation_name
+                 - weight
+

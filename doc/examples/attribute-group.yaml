@@ -1,0 +1,36 @@
+-
+    code: ecommerce
+    labels:
+        en_US: Ecommerce
+        fr_FR: Ecommerce
+        de_DE: Ecommerce
+-
+    code: erp
+    labels:
+        en_US: ERP
+        fr_FR: ERP
+        de_DE: ERP
+-
+    code: marketing
+    labels:
+        en_US: Marketing
+        fr_FR: Marketing
+        de_DE: Marketing
+-
+    code: medias
+    labels:
+        en_US: Media
+        fr_FR: Media
+        de_DE: Media
+-
+    code: product
+    labels:
+        en_US: Product
+        fr_FR: Produit
+        de_DE: Product
+-
+    code: technical
+    labels:
+        en_US: Technical
+        fr_FR: Technique
+        de_DE: Technische

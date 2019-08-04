@@ -1,0 +1,42 @@
+-
+    code: ecommerce
+    currencies:
+        - USD
+        - EUR
+    locales:
+        - de_DE
+        - en_US
+        - fr_FR
+    category_tree: master
+    labels:
+        en_US: Ecommerce
+        de_DE: Ecommerce
+        fr_FR: Ecommerce
+-
+    code: mobile
+    currencies:
+        - USD
+        - EUR
+    locales:
+        - de_DE
+        - en_US
+        - fr_FR
+    category_tree: master
+    labels:
+        en_US: Mobile
+        de_DE: Mobil
+        fr_FR: Mobile
+-
+    code: print
+    currencies:
+        - USD
+        - EUR
+    locales:
+        - de_DE
+        - en_US
+        - fr_FR
+    category_tree: master
+    labels:
+        en_US: Print
+        de_DE: Drucken
+        fr_FR: Impression

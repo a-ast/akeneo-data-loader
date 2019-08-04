@@ -1,0 +1,22 @@
+-
+    code: PACK
+    labels:
+        de_DE: Pack
+        en_US: Pack
+        fr_FR: Pack
+-
+    code: SUBSTITUTION
+    labels:
+        de_DE: Ersatz
+        en_US: Substitution
+        fr_FR: Remplacement
+-
+    code: UPSELL
+    labels:
+        en_US: Upsell
+        fr_FR: 'Vente incitative'
+-
+    code: X_SELL
+    labels:
+        en_US: 'Cross sell'
+        fr_FR: 'Vente croisée'

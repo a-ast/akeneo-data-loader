@@ -1,0 +1,84 @@
+-
+    code: master_accessories_belts
+    parent: master
+    labels:
+        en_US: Belts
+        de_DE: Belts
+        fr_FR: Belts
+-
+    code: master_accessories_bags
+    parent: master
+    labels:
+        en_US: Bags
+        de_DE: Bags
+        fr_FR: Bags
+-
+    code: master_accessories_sunglasses
+    parent: master
+    labels:
+        en_US: Sunglasses
+        de_DE: Sunglasses
+        fr_FR: Sunglasses
+-
+    code: master_accessories_hats
+    parent: master
+    labels:
+        en_US: Hats
+        de_DE: Hats
+        fr_FR: Hats
+-
+    code: master_accessories_scarves
+    parent: master
+    labels:
+        en_US: Scarves
+        de_DE: Scarves
+        fr_FR: Scarves
+-
+    code: master_men_shoes
+    parent: master
+    labels:
+        en_US: Shoes
+        de_DE: Shoes
+        fr_FR: Shoes
+-
+    code: master_women_shoes
+    parent: master
+    labels:
+        en_US: Shoes
+        de_DE: Shoes
+        fr_FR: Shoes
+-
+    code: print_accessories
+    parent: master
+    labels:
+        en_US: Accessories
+        de_DE: Accessories
+        fr_FR: Accessories
+-
+    code: print_shoes
+    parent: master
+    labels:
+        en_US: Shoes
+        de_DE: Shoes
+        fr_FR: Shoes
+-
+    code: supplier_mongo
+    parent: master
+    labels:
+        en_US: Mongo
+        de_DE: Mongo
+        fr_FR: Mongo
+-
+    code: supplier_zaro
+    parent: master
+    labels:
+        en_US: Zaro
+        de_DE: Zaro
+        fr_FR: Zaro
+-
+    code: supplier_abibas
+    parent: master
+    labels:
+        en_US: Abibas
+        de_DE: Abibas
+        fr_FR: Abibas

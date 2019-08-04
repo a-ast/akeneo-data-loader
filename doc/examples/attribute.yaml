@@ -1,0 +1,305 @@
+-
+    code: brand
+    type: pim_catalog_simpleselect
+    group: marketing
+    unique: false
+    useable_as_grid_filter: false
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Brand
+        en_US: Brand
+        fr_FR: Marque
+-
+    code: collection
+    type: pim_catalog_multiselect
+    group: marketing
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Collection
+        en_US: Collection
+        fr_FR: Collection
+-
+    code: color
+    type: pim_catalog_simpleselect
+    group: product
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Color
+        en_US: Color
+        fr_FR: Couleur
+    auto_option_sorting: false
+-
+    code: composition
+    type: pim_catalog_textarea
+    group: product
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Composition
+        en_US: Composition
+        fr_FR: Composition
+-
+    code: description
+    type: pim_catalog_textarea
+    group: marketing
+    unique: false
+    useable_as_grid_filter: true
+    wysiwyg_enabled: true
+    localizable: true
+    scopable: true
+    labels:
+        de_DE: Beschreibung
+        en_US: Description
+        fr_FR: Description
+-
+    code: ean
+    type: pim_catalog_text
+    group: erp
+    unique: true
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: EAN
+        en_US: EAN
+        fr_FR: EAN
+-
+    code: erp_name
+    type: pim_catalog_text
+    group: erp
+    unique: false
+    useable_as_grid_filter: true
+    localizable: true
+    scopable: false
+    labels:
+        de_DE: ERP-Produktname
+        en_US: 'ERP name'
+        fr_FR: 'Nom ERP'
+-
+    code: eu_shoes_size
+    type: pim_catalog_simpleselect
+    group: product
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: 'EU Shoes Size'
+        en_US: 'EU Shoes Size'
+        fr_FR: 'Taille chaussures EU'
+-
+    code: image
+    type: pim_catalog_image
+    group: medias
+    unique: false
+    useable_as_grid_filter: true
+    allowed_extensions:
+        - png
+        - jpeg
+        - jpg
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: 'Model bild'
+        en_US: 'Model picture'
+        fr_FR: 'Image du modèle'
+-
+    code: keywords
+    type: pim_catalog_textarea
+    group: ecommerce
+    unique: false
+    useable_as_grid_filter: true
+    localizable: true
+    scopable: false
+    labels:
+        de_DE: Keywords
+        en_US: Keywords
+        fr_FR: 'Mots clés'
+-
+    code: material
+    type: pim_catalog_simpleselect
+    group: product
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Material
+        en_US: Material
+        fr_FR: Matière
+-
+    code: meta_description
+    type: pim_catalog_textarea
+    group: ecommerce
+    unique: false
+    useable_as_grid_filter: true
+    localizable: true
+    scopable: false
+    labels:
+        de_DE: 'Meta description'
+        en_US: 'Meta description'
+        fr_FR: 'Meta description'
+-
+    code: meta_title
+    type: pim_catalog_text
+    group: ecommerce
+    unique: false
+    useable_as_grid_filter: true
+    localizable: true
+    scopable: false
+    labels:
+        de_DE: 'Meta title'
+        en_US: 'Meta title'
+        fr_FR: 'Meta titre'
+-
+    code: name
+    type: pim_catalog_text
+    group: marketing
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Name
+        en_US: Name
+        fr_FR: Nom
+-
+    code: notice
+    type: pim_catalog_file
+    group: medias
+    unique: false
+    useable_as_grid_filter: true
+    allowed_extensions:
+        - pdf
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Notice
+        en_US: Notice
+        fr_FR: Notice
+-
+    code: price
+    type: pim_catalog_price_collection
+    group: erp
+    unique: false
+    useable_as_grid_filter: true
+    decimals_allowed: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Preis
+        en_US: Price
+        fr_FR: Prix
+-
+    code: size
+    type: pim_catalog_simpleselect
+    group: product
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Size
+        en_US: Size
+        fr_FR: Taille
+-
+    code: sku
+    type: pim_catalog_identifier
+    group: erp
+    unique: true
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: SKU
+        en_US: SKU
+        fr_FR: SKU
+-
+    code: sole_composition
+    type: pim_catalog_text
+    group: product
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: 'Sole composition'
+        en_US: 'Sole composition'
+        fr_FR: 'Composition semelle'
+-
+    code: supplier
+    type: pim_catalog_simpleselect
+    group: erp
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Lieferant
+        en_US: Supplier
+        fr_FR: Fournisseur
+-
+    code: top_composition
+    type: pim_catalog_text
+    group: product
+    unique: false
+    useable_as_grid_filter: true
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: 'Top composition'
+        en_US: 'Top composition'
+        fr_FR: 'Composition dessus'
+-
+    code: variation_image
+    type: pim_catalog_image
+    group: medias
+    unique: false
+    useable_as_grid_filter: true
+    allowed_extensions:
+        - png
+        - jpeg
+        - jpg
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: 'Variant bild'
+        en_US: 'Variant picture'
+        fr_FR: 'Image de la variante'
+-
+    code: variation_name
+    type: pim_catalog_text
+    group: marketing
+    unique: false
+    useable_as_grid_filter: true
+    localizable: true
+    scopable: false
+    labels:
+        de_DE: 'Variant Name'
+        en_US: 'Variant Name'
+        fr_FR: 'Nom de la variante'
+-
+    code: weight
+    type: pim_catalog_metric
+    group: technical
+    unique: false
+    useable_as_grid_filter: true
+    metric_family: Weight
+    default_metric_unit: KILOGRAM
+    decimals_allowed: true
+    negative_allowed: false
+    localizable: false
+    scopable: false
+    labels:
+        de_DE: Gewicht
+        en_US: Weight
+        fr_FR: Poids

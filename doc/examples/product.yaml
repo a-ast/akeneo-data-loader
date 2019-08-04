@@ -1,0 +1,599 @@
+-
+    identifier: '1111111171'
+    enabled: true
+    family: accessories
+    categories:
+        - master_accessories_bags
+        - print_accessories
+        - supplier_zaro
+    values:
+        ean: [{ locale: null, scope: null, data: '1234567890183' }]
+        name: [{ locale: null, scope: null, data: Bag }]
+        image: [{ locale: null, scope: null, data: '@file:asset/1111111171.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '500.0000', unit: GRAM } }]
+-
+    identifier: '1111111183'
+    enabled: true
+    family: shoes
+    parent: climbingshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111184'
+    enabled: true
+    family: shoes
+    parent: climbingshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111188.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111185'
+    enabled: true
+    family: shoes
+    parent: climbingshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111188.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111186'
+    enabled: true
+    family: shoes
+    parent: climbingshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '380' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111188.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111187'
+    enabled: true
+    family: shoes
+    parent: climbingshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '370' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111188.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111188'
+    enabled: true
+    family: shoes
+    parent: climbingshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '360' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111188.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111189'
+    enabled: true
+    family: shoes
+    parent: converseblack
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111190.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111190'
+    enabled: true
+    family: shoes
+    parent: converseblack
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111190.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111191'
+    enabled: true
+    family: shoes
+    parent: conversered
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111192.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111192'
+    enabled: true
+    family: shoes
+    parent: conversered
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111192.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111199'
+    enabled: true
+    family: shoes
+    parent: derby
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111200'
+    enabled: true
+    family: shoes
+    parent: derby
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111201'
+    enabled: true
+    family: shoes
+    parent: derby
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111202'
+    enabled: true
+    family: shoes
+    parent: derby
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '380' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111203'
+    enabled: true
+    family: shoes
+    parent: derby
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '370' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111204'
+    enabled: true
+    family: shoes
+    parent: derby
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '360' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+
+#########################################
+
+-
+    identifier: '1111111217'
+    enabled: true
+    family: shoes
+    parent: dressshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111218'
+    enabled: true
+    family: shoes
+    parent: dressshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111219'
+    enabled: true
+    family: shoes
+    parent: dressshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '370' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111221.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111220'
+    enabled: true
+    family: shoes
+    parent: dressshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '360' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111221.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111221'
+    enabled: true
+    family: shoes
+    parent: dressshoe
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111221.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111222'
+    enabled: true
+    family: shoes
+    parent: elegance
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '42' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111224.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111223'
+    enabled: true
+    family: shoes
+    parent: elegance
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '43' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111224.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111224'
+    enabled: true
+    family: shoes
+    parent: elegance
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '44' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111224.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111229'
+    enabled: true
+    family: shoes
+    parent: galesh
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111230'
+    enabled: true
+    family: shoes
+    parent: galesh
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111231'
+    enabled: true
+    family: shoes
+    parent: galesh
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111232'
+    enabled: true
+    family: shoes
+    parent: galesh
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '380' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111233'
+    enabled: true
+    family: shoes
+    parent: galesh
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '360' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111254'
+    enabled: true
+    family: shoes
+    parent: jellyshoes
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '370' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111255'
+    enabled: true
+    family: shoes
+    parent: jellyshoes
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '360' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111256'
+    enabled: true
+    family: shoes
+    parent: jellyshoes
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111257'
+    enabled: true
+    family: shoes
+    parent: jellyshoes
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111258'
+    enabled: true
+    family: shoes
+    parent: jellyshoes
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111259'
+    enabled: true
+    family: shoes
+    parent: jellyshoes
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '380' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111267'
+    enabled: true
+    family: shoes
+    parent: moccasin
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111268'
+    enabled: true
+    family: shoes
+    parent: moccasin
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111269'
+    enabled: true
+    family: shoes
+    parent: moccasin
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111286'
+    enabled: true
+    family: shoes
+    parent: brooksblue
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        weight: [{ locale: null, scope: null, data: { amount: '600.0000', unit: GRAM } }]
+-
+    identifier: '1111111287'
+    enabled: true
+    family: shoes
+    parent: brooksblue
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '42' }]
+        weight: [{ locale: null, scope: null, data: { amount: '600.0000', unit: GRAM } }]
+-
+    identifier: '1111111288'
+    enabled: true
+    family: shoes
+    parent: brooksblue
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '43' }]
+        weight: [{ locale: null, scope: null, data: { amount: '600.0000', unit: GRAM } }]
+-
+    identifier: '1111111289'
+    enabled: true
+    family: shoes
+    parent: brookspink
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '370' }]
+        weight: [{ locale: null, scope: null, data: { amount: '600.0000', unit: GRAM } }]
+-
+    identifier: '1111111290'
+    enabled: true
+    family: shoes
+    parent: brookspink
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '380' }]
+        weight: [{ locale: null, scope: null, data: { amount: '600.0000', unit: GRAM } }]
+-
+    identifier: '1111111291'
+    enabled: true
+    family: shoes
+    parent: brookspink
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        weight: [{ locale: null, scope: null, data: { amount: '600.0000', unit: GRAM } }]
+-
+    identifier: '1111111296'
+    enabled: true
+    family: shoes
+    parent: stilleto
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '370' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111297'
+    enabled: true
+    family: shoes
+    parent: stilleto
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '360' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111301.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111298'
+    enabled: true
+    family: shoes
+    parent: stilleto
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '410' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111301.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111299'
+    enabled: true
+    family: shoes
+    parent: stilleto
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '400' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111301.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111300'
+    enabled: true
+    family: shoes
+    parent: stilleto
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '390' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111301.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '900.0000', unit: GRAM } }]
+-
+    identifier: '1111111301'
+    enabled: true
+    family: shoes
+    parent: stilleto
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '380' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/1111111301.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111302'
+    enabled: true
+    family: shoes
+    parent: stock
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '360' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: '1111111303'
+    enabled: true
+    family: shoes
+    parent: stock
+    values:
+        eu_shoes_size: [{ locale: null, scope: null, data: '370' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]
+-
+    identifier: braided-hat-m
+    enabled: true
+    family: accessories
+    parent: model-braided-hat
+    values:
+        size: [{ locale: null, scope: null, data: m }]
+        ean: [{ locale: null, scope: null, data: '1234567890348' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/Braided-hat-l.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '700.0000', unit: GRAM } }]
+-
+    identifier: Braided-hat-l
+    enabled: true
+    family: accessories
+    categories:
+        - master_accessories_hats
+        - master_accessories_hats
+    parent: model-braided-hat
+    values:
+        size: [{ locale: null, scope: null, data: l }]
+        ean: [{ locale: null, scope: null, data: '1234567890349' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/Braided-hat-l.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '700.0000', unit: GRAM } }]
+-
+    identifier: Running-shoes-s-white
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-s
+    values:
+        color: [{ locale: null, scope: null, data: white }]
+        ean: [{ locale: null, scope: null, data: '1234567890353' }]
+-
+    identifier: Running-shoes-s-blue
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-s
+    values:
+        color: [{ locale: null, scope: null, data: blue }]
+        ean: [{ locale: null, scope: null, data: '1234567890354' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/Running-shoes-s-blue.jpg' }]
+-
+    identifier: Running-shoes-s-red
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-s
+    values:
+        color: [{ locale: null, scope: null, data: red }]
+        ean: [{ locale: null, scope: null, data: '1234567890355' }]
+        variation_image: [{ locale: null, scope: null, data: '@file:asset/Running-shoes-s-red.jpg' }]
+-
+    identifier: Running-shoes-m-white
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-m
+    values:
+        color: [{ locale: null, scope: null, data: white }]
+        ean: [{ locale: null, scope: null, data: '1234567890356' }]
+-
+    identifier: Running-shoes-m-blue
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-m
+    values:
+        color: [{ locale: null, scope: null, data: blue }]
+        ean: [{ locale: null, scope: null, data: '1234567890357' }]
+-
+    identifier: Running-shoes-m-red
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-m
+    values:
+        color: [{ locale: null, scope: null, data: red }]
+        ean: [{ locale: null, scope: null, data: '1234567890358' }]
+-
+    identifier: Running-shoes-l-white
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-l
+    values:
+        color: [{ locale: null, scope: null, data: white }]
+        ean: [{ locale: null, scope: null, data: '1234567890359' }]
+-
+    identifier: Running-shoes-l-blue
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-l
+    values:
+        color: [{ locale: null, scope: null, data: blue }]
+        ean: [{ locale: null, scope: null, data: '1234567890360' }]
+-
+    identifier: Running-shoes-l-red
+    enabled: true
+    family: shoes
+    parent: model-running-shoes-l
+    values:
+        color: [{ locale: null, scope: null, data: red }]
+        ean: [{ locale: null, scope: null, data: '1234567890361' }]
+-
+    identifier: '1111111172'
+    enabled: true
+    family: accessories
+    categories:
+        - master_accessories_belts
+        - print_accessories
+        - supplier_mongo
+    values:
+        ean: [{ locale: null, scope: null, data: '1234567890184' }]
+        name: [{ locale: null, scope: null, data: Belt }]
+        image: [{ locale: null, scope: null, data: '@file:asset/1111111172.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '500.0000', unit: GRAM } }]
+-
+    identifier: '1111111240'
+    enabled: true
+    family: accessories
+    categories:
+        - master_accessories_hats
+        - print_accessories
+        - supplier_abibas
+    values:
+        ean: [{ locale: null, scope: null, data: '1234567890252' }]
+        name: [{ locale: null, scope: null, data: Hat }]
+        image: [{ locale: null, scope: null, data: '@file:asset/1111111240.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '500.0000', unit: GRAM } }]
+-
+    identifier: '1111111292'
+    enabled: true
+    family: accessories
+    categories:
+        - master_accessories_scarves
+        - supplier_abibas
+    values:
+        ean: [{ locale: null, scope: null, data: '1234567890304' }]
+        name: [{ locale: null, scope: null, data: Scarf }]
+        image: [{ locale: null, scope: null, data: '@file:asset/1111111292.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '600.0000', unit: GRAM } }]
+-
+    identifier: '1111111304'
+    enabled: true
+    family: accessories
+    categories:
+        - master_accessories_sunglasses
+        - supplier_zaro
+    values:
+        ean: [{ locale: null, scope: null, data: '1234567890316' }]
+        name: [{ locale: null, scope: null, data: Sunglasses }]
+        image: [{ locale: null, scope: null, data: '@file:asset/1111111304.jpg' }]
+        weight: [{ locale: null, scope: null, data: { amount: '800.0000', unit: GRAM } }]

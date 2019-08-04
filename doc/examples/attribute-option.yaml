@@ -1,0 +1,304 @@
+-
+    code: akeneo
+    attribute: brand
+    labels:
+        en_US: Akeneo
+-
+    code: autumn_2016
+    attribute: collection
+    labels:
+        de_DE: 'Autumn 2016'
+        en_US: 'Autumn 2016'
+        fr_FR: 'Automne 2016'
+-
+    code: spring_2015
+    attribute: collection
+    labels:
+        de_DE: 'Spring 2015'
+        en_US: 'Spring 2015'
+        fr_FR: 'Printemps 2015'
+-
+    code: spring_2016
+    attribute: collection
+    labels:
+        de_DE: 'Spring 2016'
+        en_US: 'Spring 2016'
+        fr_FR: 'Printemps 2016'
+-
+    code: Spring2017
+    attribute: collection
+    labels:
+        en_US: 'Spring 2017'
+-
+    code: summer_2016
+    attribute: collection
+    labels:
+        de_DE: 'Summer 2016'
+        en_US: 'Summer 2016'
+        fr_FR: 'Eté 2016'
+-
+    code: summer_2017
+    attribute: collection
+    labels:
+        de_DE: 'Summer 2017'
+        en_US: 'Summer 2017'
+        fr_FR: 'Eté 2017'
+-
+    code: winter_2016
+    attribute: collection
+    labels:
+        de_DE: 'Winter 2016'
+        en_US: 'Winter 2016'
+        fr_FR: 'Hiver 2016'
+-
+    code: black
+    attribute: color
+    labels:
+        de_DE: Black
+        en_US: Black
+        fr_FR: Noir
+-
+    code: blue
+    attribute: color
+    labels:
+        de_DE: Blue
+        en_US: Blue
+        fr_FR: Bleu
+-
+    code: brown
+    attribute: color
+    labels:
+        de_DE: Brown
+        en_US: Brown
+        fr_FR: Marron
+-
+    code: green
+    attribute: color
+    labels:
+        de_DE: Green
+        en_US: Green
+        fr_FR: Vert
+-
+    code: grey
+    attribute: color
+    labels:
+        de_DE: Grey
+        en_US: Grey
+        fr_FR: Gris
+-
+    code: orange
+    attribute: color
+    labels:
+        de_DE: Orange
+        en_US: Orange
+        fr_FR: Orange
+-
+    code: pink
+    attribute: color
+    labels:
+        de_DE: Pink
+        en_US: Pink
+        fr_FR: Rose
+-
+    code: red
+    attribute: color
+    labels:
+        de_DE: Red
+        en_US: Red
+        fr_FR: Rouge
+-
+    code: white
+    attribute: color
+    labels:
+        de_DE: White
+        en_US: White
+        fr_FR: Blanc
+-
+    code: yellow
+    attribute: color
+    labels:
+        de_DE: Yellow
+        en_US: Yellow
+        fr_FR: Jaune
+-
+    code: '360'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '36'
+        en_US: '36'
+        fr_FR: '36'
+-
+    code: '370'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '37'
+        en_US: '37'
+        fr_FR: '37'
+-
+    code: '380'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '38'
+        en_US: '38'
+        fr_FR: '38'
+-
+    code: '390'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '39'
+        en_US: '39'
+        fr_FR: '39'
+-
+    code: '400'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '40'
+        en_US: '40'
+        fr_FR: '40'
+-
+    code: '410'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '41'
+        en_US: '41'
+        fr_FR: '41'
+-
+    code: '42'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '42'
+        en_US: '42'
+        fr_FR: '42'
+-
+    code: '43'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '43'
+        en_US: '43'
+        fr_FR: '43'
+-
+    code: '44'
+    attribute: eu_shoes_size
+    labels:
+        de_DE: '44'
+        en_US: '44'
+        fr_FR: '44'
+-
+    code: cotton
+    attribute: material
+    labels:
+        de_DE: cotton
+        en_US: cotton
+        fr_FR: coton
+-
+    code: leather
+    attribute: material
+    labels:
+        de_DE: leather
+        en_US: leather
+        fr_FR: cuir
+-
+    code: metal
+    attribute: material
+    labels:
+        de_DE: metal
+        en_US: metal
+        fr_FR: metal
+-
+    code: polyester
+    attribute: material
+    labels:
+        de_DE: polyester
+        en_US: polyester
+        fr_FR: polyester
+-
+    code: wool
+    attribute: material
+    labels:
+        de_DE: wool
+        en_US: wool
+        fr_FR: laine
+-
+    code: l
+    attribute: size
+    labels:
+        de_DE: L
+        en_US: L
+        fr_FR: L
+-
+    code: m
+    attribute: size
+    labels:
+        de_DE: M
+        en_US: M
+        fr_FR: M
+-
+    code: s
+    attribute: size
+    labels:
+        de_DE: S
+        en_US: S
+        fr_FR: S
+-
+    code: u
+    attribute: size
+    labels:
+        de_DE: U
+        en_US: U
+        fr_FR: U
+-
+    code: xl
+    attribute: size
+    labels:
+        de_DE: XL
+        en_US: XL
+        fr_FR: XL
+-
+    code: xs
+    attribute: size
+    labels:
+        de_DE: XS
+        en_US: XS
+        fr_FR: XS
+-
+    code: xxl
+    attribute: size
+    labels:
+        de_DE: XXL
+        en_US: XXL
+        fr_FR: XXL
+-
+    code: xxs
+    attribute: size
+    labels:
+        de_DE: XXS
+        en_US: XXS
+        fr_FR: XXS
+-
+    code: xxxl
+    attribute: size
+    labels:
+        de_DE: XXXL
+        en_US: XXXL
+        fr_FR: XXXL
+-
+    code: abibas
+    attribute: supplier
+    labels:
+        de_DE: abibas
+        en_US: abibas
+        fr_FR: abibas
+-
+    code: mongo
+    attribute: supplier
+    labels:
+        de_DE: mongo
+        en_US: mongo
+        fr_FR: mongo
+-
+    code: zaro
+    attribute: supplier
+    labels:
+        de_DE: zaro
+        en_US: zaro
+        fr_FR: zaro
