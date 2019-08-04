@@ -8,7 +8,7 @@ Akeneo Data Loader helps you to load data to your Akeneo PIM via its REST API.
 ## Use cases
 
 * Load YAML fixtures for testing, local development or performance benchmarking.
-* Import from external systems (legacy PIM or regular data providers). 
+* Import product data from external systems (legacy PIM or regular data providers). 
 
 ## Features
 
@@ -17,10 +17,9 @@ Akeneo Data Loader helps you to load data to your Akeneo PIM via its REST API.
 
 ### Examples
 
-#### Load form array
+#### Load from an array
 
 ```php
-
 use Aa\AkeneoDataLoader\Api;
 use Aa\AkeneoDataLoader\LoaderFactory;
 
@@ -31,8 +30,36 @@ $apiCredentials = Api\Credentials::create('https://your.akeneo.host/', 'clientId
 $loader = $factory->createByCredentials($apiCredentials);
 
 $loader->load('product', [
-    ['identifier' => 'test-1'],
-    ['identifier' => 'test-2'],
+
+    'identifier' => 'test-product',
+    'enabled'    => true,
+    'family'     => 'accessories',
+    'categories' => [
+        'master_accessories',
+        'print_accessories',
+        'suppliers',
+    ],
+    'values' => [
+        'ean'    => [[ 'locale' =>  null, 'scope' =>  null, 'data' =>  '1234567890183' ]],
+        'name'   => [[ 'locale' =>  null, 'scope' =>  null, 'data' => 'Test product' ]],
+        'image'  => [[ 'locale' =>  null, 'scope' =>  null, 'data' => '@file:asset/1111111171.jpg' ]],
+        'weight' => [[ 'locale' =>  null, 'scope' =>  null, 'data' => [ 'amount' =>  '500.0000', 'unit' => 'GRAM' ] ]],
+    ],
 ]);
 ```
 
+#### Load form a YAML file
+
+```php
+use Aa\AkeneoDataLoader\Api;
+use Aa\AkeneoDataLoader\LoaderFactory;
+use Symfony\Component\Yaml\Yaml;
+
+$factory = new LoaderFactory();
+$apiCredentials = Api\Credentials::create('https://your.akeneo.host/', 'clientId', 'secret', 'username', 'password');
+$loader = $factory->createByCredentials($apiCredentials);
+
+$productData = Yaml::parse(file_get_contents('data/product.yaml'));
+
+$loader->load('product', $productData);
+```
