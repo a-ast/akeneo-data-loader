@@ -47,7 +47,7 @@ $loader->load('product', [
     ],
 ]);
 ```
-* Check [how to load media files](#LoadMediaFiles) if you wonder what does '@file:' mean.
+* Check [how to load media files](#LoadMediaFiles) if you wonder what does `@file:` mean.
 
 #### Load from a YAML file
 
