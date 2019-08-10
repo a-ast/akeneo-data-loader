@@ -148,3 +148,40 @@ use Aa\AkeneoDataLoader\Connector\Configuration;
 $configuration = Configurationcreate('assets/baseDir/path');
 $factory = new LoaderFactory($configuration);
 ```
+
+### How to query and modify data
+
+You can use Data loader to modify data fetched using Akeneo API.
+
+```php
+use Aa\AkeneoDataLoader\Api;
+use Aa\AkeneoDataLoader\LoaderFactory;
+use Akeneo\Pim\ApiClient\AkeneoPimClientBuilder;
+use Akeneo\Pim\ApiClient\Search\SearchBuilder;
+
+// Fetch data using Akeneo UPI
+
+$clientBuilder = new AkeneoPimClientBuilder('https://your.akeneo.host/');
+$client = $clientBuilder->buildAuthenticatedByPassword('clientId', 'secret', 'admin', 'admin');
+
+$searchBuilder = new SearchBuilder();
+$searchBuilder->addFilter('price', 'EMPTY');
+$searchFilters = $searchBuilder->getFilters();
+
+$products = $client->getProductApi()->all(100, ['search' => $searchFilters]);
+
+// Send modified data back
+
+$factory = new LoaderFactory();
+
+$apiCredentials = Api\Credentials::create(
+    'https://your.akeneo.host/',
+    'clientId', 'secret', 'admin', 'admin');
+
+$loader = $factory->createByCredentials($apiCredentials);
+
+foreach ($products as $product) {
+    $product['enabled'] = false;
+    $loader->load('product', [$product]);
+}
+``` 
