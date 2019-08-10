@@ -149,7 +149,7 @@ $configuration = Configurationcreate('assets/baseDir/path');
 $factory = new LoaderFactory($configuration);
 ```
 
-### How to query and modify data
+## How to query and modify data
 
 You can use Data loader to modify data fetched using Akeneo API.
 
