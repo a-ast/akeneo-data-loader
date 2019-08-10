@@ -40,13 +40,14 @@ $loader->load('product', [
         'suppliers',
     ],
     'values' => [
-        'ean'    => [[ 'locale' =>  null, 'scope' =>  null, 'data' =>  '1234567890183' ]],
+        'ean'    => [[ 'locale' =>  null, 'scope' =>  null, 'data' => '1234567890183' ]],
         'name'   => [[ 'locale' =>  null, 'scope' =>  null, 'data' => 'Test product' ]],
         'image'  => [[ 'locale' =>  null, 'scope' =>  null, 'data' => '@file:asset/1111111171.jpg' ]],
         'weight' => [[ 'locale' =>  null, 'scope' =>  null, 'data' => [ 'amount' =>  '500.0000', 'unit' => 'GRAM' ] ]],
     ],
 ]);
 ```
+* Check [how to load media files](#LoadMediaFiles) if you wonder what does '@file:' mean.
 
 #### Load from a YAML file
 
@@ -63,7 +64,7 @@ $productData = Yaml::parse(file_get_contents('data/product.yaml'));
 
 $loader->load('product', $productData);
 ```
-* [Examples of YAML files](doc/yaml_format.md)
+* [Examples of YAML files](doc/yaml-format.md)
 
 
 ## How to load data using data loader
@@ -114,4 +115,36 @@ and also these Enterprise Edition data types:
 
 The data format is a [format of Akeneo REST API](https://api.akeneo.com/documentation/resources.html).
 
-Check also [Examples of YAML files](doc/yaml_format.md) that represent the data format. 
+Check also [Examples of YAML files](doc/yaml-format.md) that represent the data format. 
+
+## <a id="LoadMediaFiles"></a>How to load media files
+
+You can simply upload a file and assign it as a value of image or file attributes.
+
+```php
+$loader->load('product', [
+    'values' => [
+        'image'  => [
+            [ 
+                'locale' => 'en_US', 
+                'scope'  => 'ecommerce', 
+                'data'   => '@file:relative/path/to/your/asset.jpg' 
+            ],
+        ],
+    ],
+]);
+
+```
+
+The prefix `@file:` tells Akeneo Data Loader to read this media file `relative/path/to/your/asset.jp` 
+and assign it as the value of the attribute `image`.
+
+You can specify the base directory path for media files using configuration of LoaderFactory:  
+
+```php
+use Aa\AkeneoDataLoader\LoaderFactory;
+use Aa\AkeneoDataLoader\Connector\Configuration;
+
+$configuration = Configurationcreate('assets/baseDir/path');
+$factory = new LoaderFactory($configuration);
+```
