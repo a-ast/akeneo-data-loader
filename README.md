@@ -136,7 +136,7 @@ $loader->load('product', [
 
 ```
 
-The prefix `@file:` tells Akeneo Data Loader to read this media file `relative/path/to/your/asset.jp` 
+The prefix `@file:` tells Akeneo Data Loader to read this media file `relative/path/to/your/asset.jpg` 
 and assign it as the value of the attribute `image`.
 
 You can specify the base directory path for media files using configuration of LoaderFactory:  
