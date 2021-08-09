@@ -30,20 +30,21 @@ $apiCredentials = Api\Credentials::create('https://your.akeneo.host/', 'clientId
 $loader = $factory->createByCredentials($apiCredentials);
 
 $loader->load('product', [
-
-    'identifier' => 'test-product',
-    'enabled'    => true,
-    'family'     => 'accessories',
-    'categories' => [
-        'master_accessories',
-        'print_accessories',
-        'suppliers',
-    ],
-    'values' => [
-        'ean'    => [[ 'locale' =>  null, 'scope' =>  null, 'data' => '1234567890183' ]],
-        'name'   => [[ 'locale' =>  null, 'scope' =>  null, 'data' => 'Test product' ]],
-        'image'  => [[ 'locale' =>  null, 'scope' =>  null, 'data' => '@file:asset/1111111171.jpg' ]],
-        'weight' => [[ 'locale' =>  null, 'scope' =>  null, 'data' => [ 'amount' =>  '500.0000', 'unit' => 'GRAM' ] ]],
+    [
+        'identifier' => 'test-product',
+        'enabled'    => true,
+        'family'     => 'accessories',
+        'categories' => [
+            'master_accessories',
+            'print_accessories',
+            'suppliers',
+        ],
+        'values' => [
+            'ean'    => [[ 'locale' =>  null, 'scope' =>  null, 'data' => '1234567890183' ]],
+            'name'   => [[ 'locale' =>  null, 'scope' =>  null, 'data' => 'Test product' ]],
+            'image'  => [[ 'locale' =>  null, 'scope' =>  null, 'data' => '@file:asset/1111111171.jpg' ]],
+            'weight' => [[ 'locale' =>  null, 'scope' =>  null, 'data' => [ 'amount' =>  '500.0000', 'unit' => 'GRAM' ] ]],
+        ],
     ],
 ]);
 ```
